@@ -1,0 +1,7 @@
+tqdm==4.38.0
+colorama==0.4.1
+spacy==3.3.0
+pyinflect
+pymorphy2
+scikit-learn
+keybert
