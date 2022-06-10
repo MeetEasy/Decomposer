@@ -1,4 +1,4 @@
-# Summarizer
+# Decomposer
 
 after installing the requirements, please run the following lines
 
