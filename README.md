@@ -16,11 +16,7 @@ input json example:
   {'end_time': '0:00:03.579000',
    'id': 1,
    'start_time': '0:00:02.540000',
-   'text': 'Да сразу'},
-  {'end_time': '0:00:07.600000',
-   'id': 2,
-   'start_time': '0:00:06.199000',
-   'text': 'Сейчас марина присоединится'}],
+   'text': 'Да сразу'}],
  'recording_id': 'e032073mnog3san85eth'}
  ```
  
@@ -34,11 +30,7 @@ input json example:
   {'end_time': '0:00:03.579000',
    'id': 1,
    'start_time': '0:00:02.540000',
-   'text': 'Да сразу'},
-  {'end_time': '0:00:07.600000',
-   'id': 2,
-   'start_time': '0:00:06.199000',
-   'text': 'Сейчас марина присоединится'}],
+   'text': 'Да сразу'}],
  'recording_id': 'e032073mnog3san85eth',
  'summary' : 'text',
  'topic' : 'text',
