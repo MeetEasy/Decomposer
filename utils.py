@@ -94,6 +94,8 @@ def get_summary(text, doc, nlp, dep_matches):
 
 def get_BEEN_DONE(text, doc, nlp, dep_matches):
     
+    extracts_list = []
+    
     for i, match in enumerate(dep_matches):
         pattern_name = match[0]
         matches = match[1]
@@ -101,12 +103,14 @@ def get_BEEN_DONE(text, doc, nlp, dep_matches):
         
             output = sorted([matches[0], matches[1], matches[2]])
             
-            return(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]], doc[output[1]].text, doc[output[1]+1:output[2]], doc[output[2]].text, doc[output[2]+1:output[2]+6].text+"..."])
-        else:
-            return []
+            extracts_list.append(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1:output[2]].text, doc[output[2]].text, doc[output[2]+1:output[2]+10].text+"..."])
+        
+    return extracts_list
 
         
 def get_TODO(text, doc, nlp, dep_matches):
+    
+    extracts_list = []
     
     for i, match in enumerate(dep_matches):
         pattern_name = match[0]
@@ -115,15 +119,16 @@ def get_TODO(text, doc, nlp, dep_matches):
         if nlp.vocab[pattern_name].text in ['nsubj_verb_dobj','need', 'strong_do'] and len(matches) > 3:
     
             output = sorted([matches[0], matches[1], matches[2], matches[3]])
-            return(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1:output[2]].text, doc[output[2]].text, doc[output[2]+1:output[3]].text, doc[output[3]].text, doc[output[3]+1: output[3] + 10].text+"..."])
+            extracts_list.append(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1:output[2]].text, doc[output[2]].text, doc[output[2]+1:output[3]].text, doc[output[3]].text, doc[output[3]+1: output[3] + 15].text+"..."])
             
         elif nlp.vocab[pattern_name].text in ['want','task', "can"] and len(matches) > 1:
     
             output = sorted([matches[0], matches[1]])
-            return(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 10].text+"..."])
+            extracts_list.append(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
         
-        else:
-            return []
+        
+    return extracts_list
+
     
 def get_keywords(text):
     
