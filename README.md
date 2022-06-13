@@ -38,3 +38,5 @@ input json example:
  'reminder' : 'text',
  'colored' : {"BEEN DONE' : [['black text', 'colored text', 'black text', 'colored text', 'black text'], ['black text', 'colored text', 'black text', 'colored text', 'black text']}, "TODO' : [['black text', 'colored text', 'black text', 'colored text', 'black text'], ['black text', 'colored text', 'black text', 'colored text', 'black text']}}
 ```
+
+### Note that every ODD id of the colored text junks should be colored 
