@@ -36,7 +36,7 @@ input json example:
  'topic' : 'text',
  'task' : 'text',
  'reminder' : 'text',
- 'colored' : {"BEEN DONE' : [['black text', 'colored text', 'black text', 'colored text', 'black text'], ['black text', 'colored text', 'black text', 'colored text', 'black text']}, "TODO' : [['black text', 'colored text', 'black text', 'colored text', 'black text'], ['black text', 'colored text', 'black text', 'colored text', 'black text']}}
+ 'colored' : {"BEEN DONE' : [['black text', 'text that should be colored', 'black text', 'text that should be colored', 'black text'], ['black text', 'text that should be colored', 'black text', 'text that should be colored', 'black text']}, "TODO' : [['black text', 'text that should be colored', 'black text', 'text that should be colored', 'black text'], ['black text', 'text that should be colored', 'black text', 'text that should be colored', 'black text']}}
 ```
 
 ##### *NOTE that every ODD id of the colored text junks should be colored 
