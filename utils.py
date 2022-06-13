@@ -1,7 +1,9 @@
 import re
 import pymorphy2
 import random
+from keybert import KeyBERT
 
+kw_model = KeyBERT()
 morph = pymorphy2.MorphAnalyzer()
 
 
@@ -33,6 +35,20 @@ def get_tasks(text, doc, nlp, dep_matches):
     
     return join_phrases(list(set(tasks)), upper=True)
 
+def get_en_tasks(text, doc, nlp, dep_matches):
+    
+    tasks = []
+    
+    for i, match in enumerate(dep_matches):
+        pattern_name = match[0]
+        matches = match[1]
+        
+        if nlp.vocab[pattern_name].text == 'strong_do':
+            
+            tasks.append(doc[matches[0]].text+' '+join_dependant_tokens(3, doc, matches))
+    
+    return join_phrases(list(set(tasks)), upper=True)
+
     
 def get_reminder(text, doc, nlp, dep_matches):
     
@@ -46,8 +62,20 @@ def get_reminder(text, doc, nlp, dep_matches):
     
     return join_phrases(list(set(reminders))) or 'Пока нет напоминаний.'
 
+def get_en_reminder(text, doc, nlp, dep_matches):
     
-def get_summary(text, doc, nlp, dep_matches):
+    reminders=[]
+    
+    for i, match in enumerate(dep_matches):
+        pattern_name = match[0]
+        matches = match[1]
+        if nlp.vocab[pattern_name].text in ['weekday','time', 'remind']:
+            reminders.append(join_dependant_tokens(0, doc, matches))
+    
+    return join_phrases(list(set(reminders))) or 'No reminders for today.'
+
+    
+def get_summary(text, doc, nlp, dep_matches, lang):
     
     been_done = []
     plans = []
@@ -64,7 +92,7 @@ def get_summary(text, doc, nlp, dep_matches):
 
 
             if verb_to_prts:
-                been_done.append([noun_to_nomn.word, num_map[doc[matches[2]].morph.get("Number")[0]],verb_to_prts.word])
+                been_done.append([noun_to_nomn.word, num_map[lang][doc[matches[2]].morph.get("Number")[0]],verb_to_prts.word])
 
         elif nlp.vocab[pattern_name].text == 'need':
 
@@ -82,7 +110,7 @@ def get_summary(text, doc, nlp, dep_matches):
 
     for i, output in enumerate(plans):
         if i==0:
-            summary_plan+=random.choice(plan_phrases)+' '+output+ ', '
+            summary_plan+=random.choice(plan_phrases[lang])+' '+output+ ', '
         elif i==len(plans)-1:
             summary_plan+=' '+output+ '.'
         else:
@@ -90,6 +118,43 @@ def get_summary(text, doc, nlp, dep_matches):
     
     
     return summary_done+' '+summary_plan
+
+def get_en_summary(text, doc, nlp, dep_matches, lang):
+    
+    been_done = []
+    discussed = []
+    plans = []
+    summary_done = ''
+    summary_plan = ''
+    
+    for i, match in enumerate(dep_matches):
+        pattern_name = match[0]
+        matches = match[1]
+        if nlp.vocab[pattern_name].text == 'strong_been_done' and len(matches) > 2:
+            
+            if doc[matches[0]]._.inflect("VBN"):
+        
+                been_done.append(doc[matches[2]].text+' '+num_map[lang][doc[matches[2]].morph.get("Number")[0]]+' '+ doc[matches[0]]._.inflect("VBN"))
+            
+        elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
+            
+            sentence = join_dependant_tokens(1, doc, matches)
+            
+            summary_plan+=random.choice(plan_phrases[lang])+' '+sentence+'. '
+            
+        elif nlp.vocab[pattern_name].text == 'discuss':
+            
+            discussed.append(join_dependant_tokens(1, doc, matches))
+            
+        elif nlp.vocab[pattern_name].text == 'strong_do':
+            
+            tasks.append(doc[matches[0]].text+' '+join_dependant_tokens(3, doc, matches))
+               
+    
+    if discussed:
+        return random.choice(discussed_phrases)+' '+ join_phrases(discussed, upper=False)+join_phrases(been_done)+' '+summary_plan
+    else:
+        return join_phrases(been_done)+' '+summary_plan
 
 
 def get_BEEN_DONE(text, doc, nlp, dep_matches):
@@ -133,6 +198,19 @@ def get_TODO(text, doc, nlp, dep_matches):
 def get_keywords(text):
     
     return "<keywords>"
+
+
+def get_en_keywords(text):
+    
+    keywords = kw_model.extract_keywords(text)[:3]
+    topic=''
+    for i, keyword in enumerate(keywords):
+        if i==len(keywords)-1:
+            topic+=keyword[0]
+        else:
+            topic+=keyword[0]+', '
+            
+    return topic
 
 
 def extract_dependant_tokens(tokens, dependant_tokens):
@@ -187,11 +265,13 @@ def join_phrases(phrases_list, upper=True):
         return sentence
 
 
-num_map = {'Plur':'были','Sing':'был'}
+num_map = {'ru' : {'Plur':'были','Sing':'был'},
+           'en' : {'Plur':'were','Sing':'was'}}
 
 gen_map = {'Fem':'femn','Masc':'masc', 'Neut':'neut'}
 
-plan_phrases=['Теперь нужно', "Дальше нужно", "Следующий этап:", "Далее:"]
+plan_phrases={'ru' : ['Теперь нужно', "Дальше нужно", "Следующий этап:", "Далее:"],
+              'en' : ['You now need', "Now you need", "It's time", "Now it's time", "Next is", "Then is"]}
 
 rus_stopwords = ['аа','слушай', "говоришь",'клево','ща', 'привет','приветик', "допустим","смотри",
                  'приду','секунду', 'разрешаю','нет',"типа", "угу", "ну","чето"]
