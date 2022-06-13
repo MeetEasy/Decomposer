@@ -145,11 +145,6 @@ def get_en_summary(text, doc, nlp, dep_matches, lang):
         elif nlp.vocab[pattern_name].text == 'discuss':
             
             discussed.append(join_dependant_tokens(1, doc, matches))
-            
-        elif nlp.vocab[pattern_name].text == 'strong_do':
-            
-            tasks.append(doc[matches[0]].text+' '+join_dependant_tokens(3, doc, matches))
-               
     
     if discussed:
         return random.choice(discussed_phrases)+' '+ join_phrases(discussed, upper=False)+join_phrases(been_done)+' '+summary_plan
@@ -277,7 +272,7 @@ rus_stopwords = ['аа','слушай', "говоришь",'клево','ща', 
                  'приду','секунду', 'разрешаю','нет',"типа", "угу", "ну","чето"]
 verb_stopwords=['told','said','had', 'loved', 'see']
 noun_stopwords=['kind', 'microphone', 'screen','moment','thing']
-
+discussed_phrases=["You discussed"]
 
 patterns = {
             'need' : {

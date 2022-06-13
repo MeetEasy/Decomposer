@@ -2,10 +2,10 @@ import json
 from decomposition import decompose
 
 
-input_path = '12.json'
+input_path = 'English_12.json'
 
 
-output_path = "12.json"
+output_path = "English_12.json"
 
 if __name__ == '__main__':
     

@@ -2,6 +2,7 @@ from utils import process_json, get_keywords, get_en_keywords, get_summary, get_
 import spacy
 from spacy.matcher import Matcher, DependencyMatcher
 from langdetect import detect
+import pyinflect
 
 model_matcher = {'ru' : 'ru_core_news_sm',
                 'en' : 'en_core_web_sm'}
