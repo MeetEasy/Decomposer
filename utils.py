@@ -96,7 +96,7 @@ def get_summary(text, doc, nlp, dep_matches, lang):
 
         elif nlp.vocab[pattern_name].text == 'need':
 
-            plans.append(join_dependant_tokens(2, doc, matches))
+            plans.append(join_dependant_tokens(1, doc, matches))
 
 
     for i, output in enumerate(been_done):
@@ -181,7 +181,7 @@ def get_TODO(text, doc, nlp, dep_matches):
             output = sorted([matches[0], matches[1], matches[2], matches[3]])
             extracts_list.append(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1:output[2]].text, doc[output[2]].text, doc[output[2]+1:output[3]].text, doc[output[3]].text, doc[output[3]+1: output[3] + 15].text+"..."])
             
-        elif nlp.vocab[pattern_name].text in ['want','task', "can"] and len(matches) > 1:
+        elif nlp.vocab[pattern_name].text in ['want','task', "can", "today"] and len(matches) > 1:
     
             output = sorted([matches[0], matches[1]])
             extracts_list.append(["..."+ doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
@@ -279,10 +279,9 @@ patterns = {
         
         'ru' : [
             
-    {'RIGHT_ID': 'advmod', 'RIGHT_ATTRS': {'POS': 'ADJ',"LOWER": {"IN": ["нужно","надо","необходимо"]}}},
-    {'LEFT_ID': 'advmod', 'REL_OP': '>', 'RIGHT_ID': 'i_object', 'RIGHT_ATTRS': {'DEP': 'iobj','POS': 'PRON'}},
+    {'RIGHT_ID': 'advmod', 'RIGHT_ATTRS': {"LOWER": {"IN": ["нужно","надо","необходимо"]}}},
     {'LEFT_ID': 'advmod', 'REL_OP': '>', 'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'DEP': 'csubj','POS': 'VERB'}},
-    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj', 'POS': {"IN":["NOUN"]}}}
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj', 'POS': {"IN":["NOUN", "PRON"]}}}
                 ],
         
         'en' : [
@@ -464,5 +463,19 @@ patterns = {
     {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Past']}}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'd_object', 'RIGHT_ATTRS': {'DEP': 'dobj',"LOWER":{"NOT_IN":noun_stopwords}}}
+                ]},
+    
+    'today': {
+        
+        'ru' : [
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Pres']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'today', 'RIGHT_ATTRS': {'DEP': 'advmod','LOWER': {"IN":["сегодня"]}}}
+                ],
+        'en' : [
+            
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUBSET': ['Tense=Pres', 'Tense=Fut']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'today', 'RIGHT_ATTRS': {'DEP': 'advmod',"LOWER":{"IN":['today']}}}
                 ]}
 }
