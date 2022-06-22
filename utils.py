@@ -15,17 +15,18 @@ def process_json(transcript_json):
     if "speaker" in transcript_json['message_list'][0].keys():
         for message in transcript_json['message_list']:
             if message['speaker']==speaker:
-                text+=message['text'].lower()+' '
+                
+                text = text[:-1]
+                text+=' '+message['text'].lower()+' '
             else:
-                text+=message['text']+'. '
+                text = text[:-1]
+                text+='. '+message['text']+'.'
                 speaker = message['speaker']
                 
     else:
 
         for message in transcript_json['message_list']:
             text+=message['text']+'. '
-    
-    return text
 
 
 def get_tasks(text, doc, nlp, dep_matches):
