@@ -4,7 +4,7 @@ from spacy.matcher import Matcher, DependencyMatcher
 from langdetect import detect
 import pyinflect
 
-model_matcher = {'ru' : 'ru_core_news_sm',
+model_matcher = {'ru' : 'ru_core_news_lg',
                 'en' : 'en_core_web_sm'}
 
 functions_matcher = {'ru' : {'topic' : get_keywords,
