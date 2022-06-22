@@ -10,9 +10,20 @@ morph = pymorphy2.MorphAnalyzer()
 def process_json(transcript_json):
     
     text= ''
+    speaker = "SPEAKER_00"
+    
+    if "speaker" in transcript_json['message_list'][0].keys():
+        for message in transcript_json['message_list']:
+            if message['speaker']==speaker:
+                text+=message['text'].lower()+' '
+            else:
+                text+=message['text']+'. '
+                speaker = message['speaker']
+                
+    else:
 
-    for message in transcript_json['message_list']:
-        text+=message['text']+'. '
+        for message in transcript_json['message_list']:
+            text+=message['text']+'. '
     
     return text
 
@@ -25,7 +36,7 @@ def get_tasks(text, doc, nlp, dep_matches):
         pattern_name = match[0]
         matches = match[1]
         
-        if nlp.vocab[pattern_name].text in ['task','want']:
+        if nlp.vocab[pattern_name].text in ['task', 'want']:
                 
             tasks.append(join_dependant_tokens(1, doc, matches))
     
@@ -159,7 +170,7 @@ def get_BEEN_DONE(text, doc, nlp, dep_matches):
     for i, match in enumerate(dep_matches):
         pattern_name = match[0]
         matches = match[1]
-        if nlp.vocab[pattern_name].text == 'been_done' and len(matches) > 2:
+        if nlp.vocab[pattern_name].text in ['been_done', 'want'] and len(matches) > 2:
         
             output = sorted([matches[0], matches[1], matches[2]])
             
@@ -269,7 +280,8 @@ plan_phrases={'ru' : ['Теперь нужно', "Дальше нужно", "С�
               'en' : ['You now need', "Now you need", "It's time", "Now it's time", "Next is", "Then is"]}
 
 rus_stopwords = ['аа','слушай', "говоришь",'клево','ща', 'привет','приветик', "допустим","смотри",
-                 'приду','секунду', 'разрешаю','нет',"типа", "угу", "ну","чето"]
+                 'приду','секунду', 'разрешаю','нет',"типа", "угу", "ну","чето", "да", "ааа"]
+pron_stopwords = ["нибудь","который","я", "ты", "он", "она", "они", "кое", "что"]
 verb_stopwords=['told','said','had', 'loved', 'see']
 noun_stopwords=['kind', 'microphone', 'screen','moment','thing']
 discussed_phrases=["You discussed"]
@@ -281,7 +293,7 @@ patterns = {
             
     {'RIGHT_ID': 'advmod', 'RIGHT_ATTRS': {"LOWER": {"IN": ["нужно","надо","необходимо"]}}},
     {'LEFT_ID': 'advmod', 'REL_OP': '>', 'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'DEP': 'csubj','POS': 'VERB'}},
-    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj', 'POS': {"IN":["NOUN", "PRON"], "NOT_IN":["нибудь","который","я", "ты", "он", "она", "они"]}}}
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj', 'POS': {"IN":["NOUN"]}, "LOWER": {"NOT_IN":pron_stopwords}}}
                 ],
         
         'en' : [
