@@ -1,0 +1,2363 @@
+{
+    "recording_id": "e03pa5tqjrbb3qhmbae9",
+    "message_list": [
+        {
+            "id": 0,
+            "text": "I will start the recording right away by the way ",
+            "start_time": "0:00:00.079000",
+            "end_time": "0:00:01.299000"
+        },
+        {
+            "id": 1,
+            "text": "Yes right away ",
+            "start_time": "0:00:02.540000",
+            "end_time": "0:00:03.579000"
+        },
+        {
+            "id": 2,
+            "text": "Now Marina will join ",
+            "start_time": "0:00:06.199000",
+            "end_time": "0:00:07.600000"
+        },
+        {
+            "id": 3,
+            "text": "Hi, this is Marina if that aha Marin hello ",
+            "start_time": "0:00:16.879000",
+            "end_time": "0:00:21.199000"
+        },
+        {
+            "id": 4,
+            "text": "So someone can see, but Dasha is displayed when she was last on my network is simply hidden ",
+            "start_time": "0:00:26.059000",
+            "end_time": "0:00:32.679000"
+        },
+        {
+            "id": 5,
+            "text": "I also have hidden now I will see ",
+            "start_time": "0:00:33.159000",
+            "end_time": "0:00:35.440000"
+        },
+        {
+            "id": 6,
+            "text": "And she has hidden ",
+            "start_time": "0:00:38.970000",
+            "end_time": "0:00:39.849000"
+        },
+        {
+            "id": 7,
+            "text": "Yeah ",
+            "start_time": "0:00:40.489000",
+            "end_time": "0:00:40.729000"
+        },
+        {
+            "id": 8,
+            "text": "Okay okay then ",
+            "start_time": "0:00:41.799000",
+            "end_time": "0:00:43.059000"
+        },
+        {
+            "id": 9,
+            "text": "In general, she said that ",
+            "start_time": "0:00:48.269000",
+            "end_time": "0:00:49.943000"
+        },
+        {
+            "id": 10,
+            "text": "But it doesn’t focus on it, I thought that I was sitting at my house, but okay is good ",
+            "start_time": "0:00:50.719000",
+            "end_time": "0:00:56.599000"
+        },
+        {
+            "id": 11,
+            "text": "Yes, yes and then we just drop the record we'll see further ",
+            "start_time": "0:00:57.130000",
+            "end_time": "0:01:02.889000"
+        },
+        {
+            "id": 12,
+            "text": "So ",
+            "start_time": "0:01:05.170000",
+            "end_time": "0:01:05.489000"
+        },
+        {
+            "id": 13,
+            "text": "Well, then, then, then let us start with us, respectively, today on the agenda that we had several tasks on ",
+            "start_time": "0:01:06.719000",
+            "end_time": "0:01:17.310000"
+        },
+        {
+            "id": 14,
+            "text": "Finishing self -realization ",
+            "start_time": "0:01:18.189000",
+            "end_time": "0:01:19.550000"
+        },
+        {
+            "id": 15,
+            "text": "Marina turned out to be a reminder by the time of the date and post in a separate repository of the developing on the Summer at Mair to call Marina, respectively ",
+            "start_time": "0:01:20.799000",
+            "end_time": "0:01:32.280000"
+        },
+        {
+            "id": 16,
+            "text": "And I have it to integrate it more precise ",
+            "start_time": "0:01:33.419000",
+            "end_time": "0:01:40.299000"
+        },
+        {
+            "id": 17,
+            "text": "With flask so, respectively, then let me start ",
+            "start_time": "0:01:41.890000",
+            "end_time": "0:01:47.396000"
+        },
+        {
+            "id": 18,
+            "text": "That we had a design, Sergey, I finished the design, I threw it away, then it was a little ruled there and did it all that I worked in a flask in Python. ",
+            "start_time": "0:01:47.959000",
+            "end_time": "0:02:03.559000"
+        },
+        {
+            "id": 19,
+            "text": "The flag in Afaska is simply because there is a little different ",
+            "start_time": "0:02:04.060000",
+            "end_time": "0:02:08.189000"
+        },
+        {
+            "id": 20,
+            "text": "And accordingly, these achievements I have already posted in ",
+            "start_time": "0:02:08.629000",
+            "end_time": "0:02:13.229000"
+        },
+        {
+            "id": 21,
+            "text": "By the way, you will pay attention to a separate repository, we have appeared new repositories called the Foreign Ministry ",
+            "start_time": "0:02:14.300000",
+            "end_time": "0:02:21.359000"
+        },
+        {
+            "id": 22,
+            "text": "That is, in the project of the metiz of re -istory Metiza here, accordingly, we are, respectively, we ",
+            "start_time": "0:02:21.779000",
+            "end_time": "0:02:27.679000"
+        },
+        {
+            "id": 23,
+            "text": "Our Web Recation is here ",
+            "start_time": "0:02:28.399000",
+            "end_time": "0:02:31.919000"
+        },
+        {
+            "id": 24,
+            "text": "I need to do it for a good way, I’ll take it in the next one, I will take it is a rediermates textem so that all the dependencies were put at once at once I just put all the bags in the basic environment, so I just need to create a new environment and, accordingly, let's look at ",
+            "start_time": "0:02:34.209000",
+            "end_time": "0:02:58.929000"
+        },
+        {
+            "id": 25,
+            "text": "How it looks with us now, in general, in general, this is clear that this is far from the final look, that is, we will still improve in every possible way, but nevertheless it is already at least not just like a white screen as we used to look like A little better and, accordingly, this is what I like is a beautiful dragon drop zones ",
+            "start_time": "0:02:59.669000",
+            "end_time": "0:03:26.329000"
+        },
+        {
+            "id": 26,
+            "text": "In which you can throw a file and send it to download but or choose a device in fact, the same thing is there a filter on ",
+            "start_time": "0:03:27.069000",
+            "end_time": "0:03:36.669000"
+        },
+        {
+            "id": 27,
+            "text": "That only audio and video format can be uploaded and, accordingly, when we click, downloading a new tab opens and went to be executed ",
+            "start_time": "0:03:38.469000",
+            "end_time": "0:03:47.883000"
+        },
+        {
+            "id": 28,
+            "text": "Script well, everything is in principle, everything we already know that is, that is, it is simply done, and when it is done here on this tab, now we can wait a little in principle of 8 enter is already on this tab, our document should be displayed ",
+            "start_time": "0:03:49.169000",
+            "end_time": "0:04:10.289000"
+        },
+        {
+            "id": 29,
+            "text": "So what I loaded, but actually he was displayed, that is, now it looks like this ",
+            "start_time": "0:04:10.389000",
+            "end_time": "0:04:16.449000"
+        },
+        {
+            "id": 30,
+            "text": "What in the future I want to do regards to the front -end is 1 more accurately corrected, but to do it here ",
+            "start_time": "0:04:18.249000",
+            "end_time": "0:04:26.609000"
+        },
+        {
+            "id": 31,
+            "text": "Progress bar ",
+            "start_time": "0:04:28.439000",
+            "end_time": "0:04:29.619000"
+        },
+        {
+            "id": 32,
+            "text": "1 more precisely ",
+            "start_time": "0:04:29.759000",
+            "end_time": "0:04:30.200000"
+        },
+        {
+            "id": 33,
+            "text": "Some kind of download that the file is processed so as not to open an empty tab, some kind of progress of the bar that it was visible at least what happens, well, and the rest of the small editing on the front -end + we still wanted to make this thing beautifully, well, at least it can be putting the background that it can be that something else, but somehow more beautiful, too, so that it does not look like not ",
+            "start_time": "0:04:30.899000",
+            "end_time": "0:04:57.619000"
+        },
+        {
+            "id": 34,
+            "text": "White screen and, accordingly, we still have on the page ",
+            "start_time": "0:04:58.190000",
+            "end_time": "0:05:02.569000"
+        },
+        {
+            "id": 35,
+            "text": "Well, roughly speaking ",
+            "start_time": "0:05:04.519000",
+            "end_time": "0:05:06.319000"
+        },
+        {
+            "id": 36,
+            "text": "Slides with a presentation ",
+            "start_time": "0:05:06.839000",
+            "end_time": "0:05:07.979000"
+        },
+        {
+            "id": 37,
+            "text": "That is here ",
+            "start_time": "0:05:08.669000",
+            "end_time": "0:05:09.129000"
+        },
+        {
+            "id": 38,
+            "text": "Some problems are further than we offer and here is just a random text here we are here ",
+            "start_time": "0:05:10.679000",
+            "end_time": "0:05:17.559000"
+        },
+        {
+            "id": 39,
+            "text": "More precisely, I will take it a do this, we will plan to continue ",
+            "start_time": "0:05:18.710000",
+            "end_time": "0:05:24.416000"
+        },
+        {
+            "id": 40,
+            "text": "And at the end there will be 1 section with ",
+            "start_time": "0:05:25.649000",
+            "end_time": "0:05:28.629000"
+        },
+        {
+            "id": 41,
+            "text": "We have a block that is, that is, there will be our portraits and just our team roughly speaking, that is, the page now looks like this and like this ",
+            "start_time": "0:05:29.429000",
+            "end_time": "0:05:38.789000"
+        },
+        {
+            "id": 42,
+            "text": "In principle, it looks better, but still ",
+            "start_time": "0:05:39.800000",
+            "end_time": "0:05:43.819000"
+        },
+        {
+            "id": 43,
+            "text": "Where to work is clear, so you think what is your opinion ",
+            "start_time": "0:05:44.886000",
+            "end_time": "0:05:51.166000"
+        },
+        {
+            "id": 44,
+            "text": "It looks very nice very pretty ",
+            "start_time": "0:05:53.510000",
+            "end_time": "0:05:56.610000"
+        },
+        {
+            "id": 45,
+            "text": "Well, we will finish ",
+            "start_time": "0:05:58.029000",
+            "end_time": "0:05:59.669000"
+        },
+        {
+            "id": 46,
+            "text": "We will still finish this from our presentation, I didn’t have to draw it, I just gave Sergey more or less in good quality of the picture ",
+            "start_time": "0:06:00.149000",
+            "end_time": "0:06:16.749000"
+        },
+        {
+            "id": 47,
+            "text": "Here ",
+            "start_time": "0:06:17.709000",
+            "end_time": "0:06:17.949000"
+        },
+        {
+            "id": 48,
+            "text": "Initially, this presentation was made by a designer ",
+            "start_time": "0:06:21.409000",
+            "end_time": "0:06:24.990000"
+        },
+        {
+            "id": 49,
+            "text": "Actually for 11000 ",
+            "start_time": "0:06:25.749000",
+            "end_time": "0:06:28.069000"
+        },
+        {
+            "id": 50,
+            "text": "They are pictures of this opensor, that is, that is, and well, she did not draw them, but in fact I think that I ",
+            "start_time": "0:06:30.950000",
+            "end_time": "0:06:39.809000"
+        },
+        {
+            "id": 51,
+            "text": "We have this all for 4,500 ",
+            "start_time": "0:06:40.469000",
+            "end_time": "0:06:43.569000"
+        },
+        {
+            "id": 52,
+            "text": "This is just super well and he will still flood our hosting on his hosting on the French server, and he is ready to do it, that is, that is, ",
+            "start_time": "0:06:44.969000",
+            "end_time": "0:06:57.309000"
+        },
+        {
+            "id": 53,
+            "text": "Well, he explained to me what ",
+            "start_time": "0:06:58.179000",
+            "end_time": "0:06:59.940000"
+        },
+        {
+            "id": 54,
+            "text": "Well, that it shouldn't be very expensive ",
+            "start_time": "0:07:02.510000",
+            "end_time": "0:07:05.669000"
+        },
+        {
+            "id": 55,
+            "text": "All this is his work, we initially wanted him to translate 100 bucks like 7000, he said that this is a lot, well, how would we argue with him, I think we will not be here ",
+            "start_time": "0:07:05.829000",
+            "end_time": "0:07:18.749000"
+        },
+        {
+            "id": 56,
+            "text": "Therefore, I think that for 4,500, in principle, more than norms and taking into account the fact that there is still a hosting to give up and this is how ",
+            "start_time": "0:07:20.459000",
+            "end_time": "0:07:27.879000"
+        },
+        {
+            "id": 57,
+            "text": "I have already said this is all the time, I have purely further plans for all this in 1 ",
+            "start_time": "0:07:28.040000",
+            "end_time": "0:07:35.719000"
+        },
+        {
+            "id": 58,
+            "text": "Well, finish small things ",
+            "start_time": "0:07:36.729000",
+            "end_time": "0:07:38.409000"
+        },
+        {
+            "id": 59,
+            "text": "I already said in 2 I will begin to embed Marina’s script for self -realization because it is straight ",
+            "start_time": "0:07:38.799000",
+            "end_time": "0:07:47.966000"
+        },
+        {
+            "id": 60,
+            "text": "It is very important now we will discuss this how we will do this and when we build Marina Stript by self -realization, we will have a self -realization here, something will change here and we will post it in this form ",
+            "start_time": "0:07:49.349000",
+            "end_time": "0:08:05.099000"
+        },
+        {
+            "id": 61,
+            "text": "So, in principle, I convey everything to my word ",
+            "start_time": "0:08:07.699000",
+            "end_time": "0:08:10.299000"
+        },
+        {
+            "id": 62,
+            "text": "Marina come on and I can probably arrange a demonstration ",
+            "start_time": "0:08:12.089000",
+            "end_time": "0:08:14.820000"
+        },
+        {
+            "id": 63,
+            "text": "So about spreading the leg ",
+            "start_time": "0:08:16.820000",
+            "end_time": "0:08:19.139000"
+        },
+        {
+            "id": 64,
+            "text": "Hap, I wrote an emergence and cleaned a little code so that it was more readable ",
+            "start_time": "0:08:19.499000",
+            "end_time": "0:08:24.059000"
+        },
+        {
+            "id": 65,
+            "text": "I just wanted to combine work with 2 languages in 1 laptop I had too much ",
+            "start_time": "0:08:25.599000",
+            "end_time": "0:08:30.819000"
+        },
+        {
+            "id": 66,
+            "text": "On 2 laptops all this is duplicated a lot ",
+            "start_time": "0:08:31.580000",
+            "end_time": "0:08:34.219000"
+        },
+        {
+            "id": 67,
+            "text": "And I almost did it then today I will download it tomorrow ",
+            "start_time": "0:08:34.540000",
+            "end_time": "0:08:38.219000"
+        },
+        {
+            "id": 68,
+            "text": "And I write you a link ",
+            "start_time": "0:08:39.069000",
+            "end_time": "0:08:40.409000"
+        },
+        {
+            "id": 69,
+            "text": "And then I won’t be franking the screen because I added a reminder there in the days of the week and time so far without dates but ",
+            "start_time": "0:08:42.040000",
+            "end_time": "0:08:48.639000"
+        },
+        {
+            "id": 70,
+            "text": "And I'll show you then it will be in the laptop ",
+            "start_time": "0:08:49.819000",
+            "end_time": "0:08:53.600000"
+        },
+        {
+            "id": 71,
+            "text": "Which I will fill ",
+            "start_time": "0:08:54.090000",
+            "end_time": "0:08:54.689000"
+        },
+        {
+            "id": 72,
+            "text": "Yes ",
+            "start_time": "0:08:55.510000",
+            "end_time": "0:08:55.730000"
+        },
+        {
+            "id": 73,
+            "text": "I also phoned me and Marina finally phoned her ",
+            "start_time": "0:08:58.199000",
+            "end_time": "0:09:01.140000"
+        },
+        {
+            "id": 74,
+            "text": "She will help ",
+            "start_time": "0:09:02.080000",
+            "end_time": "0:09:02.779000"
+        },
+        {
+            "id": 75,
+            "text": "With this extraction of calls in Russian ",
+            "start_time": "0:09:04",
+            "end_time": "0:09:06.839000"
+        },
+        {
+            "id": 76,
+            "text": "And about the combination of proposals and segmentation probably ",
+            "start_time": "0:09:08.959000",
+            "end_time": "0:09:13.626000"
+        },
+        {
+            "id": 77,
+            "text": "You would help her ",
+            "start_time": "0:09:14.009000",
+            "end_time": "0:09:15.929000"
+        },
+        {
+            "id": 78,
+            "text": "To select 1 speaker ",
+            "start_time": "0:09:17.939000",
+            "end_time": "0:09:20.249000"
+        },
+        {
+            "id": 79,
+            "text": "So good you are, by the way, about the repository, how can you lay out ",
+            "start_time": "0:09:23.539000",
+            "end_time": "0:09:29.983000"
+        },
+        {
+            "id": 80,
+            "text": "This question is a model that is a syntactic model for the Russian language and English, it differs only by a set of words or exactly exactly something right is not because there are some different ones depending on the name depending on the name ",
+            "start_time": "0:09:30.419000",
+            "end_time": "0:09:49.799000"
+        },
+        {
+            "id": 81,
+            "text": "Well, yes there are different ",
+            "start_time": "0:09:51.869000",
+            "end_time": "0:09:52.789000"
+        },
+        {
+            "id": 82,
+            "text": "Okay, it turns out from the dependence ",
+            "start_time": "0:09:54.099000",
+            "end_time": "0:09:55.860000"
+        },
+        {
+            "id": 83,
+            "text": "Yeah well, well, I just thought how they were all 2 different and they just just can be loaded at first if it turns out already we can spread it and it is spinning ",
+            "start_time": "0:09:57.039000",
+            "end_time": "0:10:07.539000"
+        },
+        {
+            "id": 84,
+            "text": "So that every time there is not for every call ",
+            "start_time": "0:10:08.159000",
+            "end_time": "0:10:10.159000"
+        },
+        {
+            "id": 85,
+            "text": "Continue ",
+            "start_time": "0:10:10.469000",
+            "end_time": "0:10:11.070000"
+        },
+        {
+            "id": 86,
+            "text": "Or I don't know, in principle, I probably don't know how more convenient ",
+            "start_time": "0:10:11.489000",
+            "end_time": "0:10:14.280000"
+        },
+        {
+            "id": 87,
+            "text": "Well no, I just think that ",
+            "start_time": "0:10:14.999000",
+            "end_time": "0:10:19.119000"
+        },
+        {
+            "id": 88,
+            "text": "How to unify this is all the thing to unify, well, from the point of view of repatling, we'll see then together then the whole thing is all about it. ",
+            "start_time": "0:10:19.919000",
+            "end_time": "0:10:34.019000"
+        },
+        {
+            "id": 89,
+            "text": "Well, I think I think we will add some kind of tick or checkplace or checking box to choose from a tongue ",
+            "start_time": "0:10:40.189000",
+            "end_time": "0:10:52.129000"
+        },
+        {
+            "id": 90,
+            "text": "To eat google for estrus that determines the language, you can automatically ",
+            "start_time": "0:10:52.809000",
+            "end_time": "0:10:58.569000"
+        },
+        {
+            "id": 91,
+            "text": "This one can probably do ",
+            "start_time": "0:10:59.810000",
+            "end_time": "0:11:01.589000"
+        },
+        {
+            "id": 92,
+            "text": "Either it is so simply unknown how hard it is in terms of how many additional dependencies but it requires how long it is fast and so on because if Google is determined there 2 minutes then, well, we will probably refuse at least now because we are already building There is enough transcription now ",
+            "start_time": "0:11:03.289000",
+            "end_time": "0:11:28.449000"
+        },
+        {
+            "id": 93,
+            "text": "Lengthened due to just the same 8 mentishin because you are segmented, well, about 2 times, that is, it is now smoking, that is, that is, ",
+            "start_time": "0:11:29.179000",
+            "end_time": "0:11:39.520000"
+        },
+        {
+            "id": 94,
+            "text": "That 8 Intel tires work for a long time for about the same time as just the same transcribation ",
+            "start_time": "0:11:40.759000",
+            "end_time": "0:11:47.659000"
+        },
+        {
+            "id": 95,
+            "text": "Yandex comes as much and sleeps and the tire then and longer, well, well, it’s fine, so some other news ",
+            "start_time": "0:11:48.490000",
+            "end_time": "0:11:56.650000"
+        },
+        {
+            "id": 96,
+            "text": "Well, that's all for now I need ",
+            "start_time": "0:11:59.199000",
+            "end_time": "0:12:02.370000"
+        },
+        {
+            "id": 97,
+            "text": "English ",
+            "start_time": "0:12:02.609000",
+            "end_time": "0:12:03.069000"
+        },
+        {
+            "id": 98,
+            "text": "And put to work ",
+            "start_time": "0:12:04.499000",
+            "end_time": "0:12:05.400000"
+        },
+        {
+            "id": 99,
+            "text": "So that Marina can also add her ",
+            "start_time": "0:12:06.349000",
+            "end_time": "0:12:08.349000"
+        },
+        {
+            "id": 100,
+            "text": "Yeah well, then let's discuss the tasks, we’ll discuss Marina, who, here are mine in the sense of you, you will try then I did not ask you how you are doing ",
+            "start_time": "0:12:11.799000",
+            "end_time": "0:12:25.770000"
+        },
+        {
+            "id": 101,
+            "text": "And all well thanks ",
+            "start_time": "0:12:26.249000",
+            "end_time": "0:12:27.569000"
+        },
+        {
+            "id": 102,
+            "text": "Thank you, here I understand how I found it ",
+            "start_time": "0:12:27.570000",
+            "end_time": "0:12:29.570000"
+        },
+        {
+            "id": 103,
+            "text": "Such a spontaneous vacation ",
+            "start_time": "0:12:30.350000",
+            "end_time": "0:12:31.749000"
+        },
+        {
+            "id": 104,
+            "text": "We went there to Russian ",
+            "start_time": "0:12:32.619000",
+            "end_time": "0:12:35.670000"
+        },
+        {
+            "id": 105,
+            "text": "The Caucasus is generally like the Minvods Pyatigorsk then here is Georgia by car and with Dasha visited Tbilisi there ",
+            "start_time": "0:12:36.049000",
+            "end_time": "0:12:43.499000"
+        },
+        {
+            "id": 106,
+            "text": "Long but ",
+            "start_time": "0:12:43.640000",
+            "end_time": "0:12:44.120000"
+        },
+        {
+            "id": 107,
+            "text": "Few hours ",
+            "start_time": "0:12:44.739000",
+            "end_time": "0:12:45.299000"
+        },
+        {
+            "id": 108,
+            "text": "We really ate the waterfall were ",
+            "start_time": "0:12:45.630000",
+            "end_time": "0:12:48.429000"
+        },
+        {
+            "id": 109,
+            "text": "And then you went to Armenia and then in short after a and a half after ",
+            "start_time": "0:12:49.529000",
+            "end_time": "0:12:55.090000"
+        },
+        {
+            "id": 110,
+            "text": "Tarasu ",
+            "start_time": "0:12:55.809000",
+            "end_time": "0:12:56.460000"
+        },
+        {
+            "id": 111,
+            "text": "Right one and a half days ",
+            "start_time": "0:12:57.080000",
+            "end_time": "0:12:59.019000"
+        },
+        {
+            "id": 112,
+            "text": "Already in Moscow, well, well, actually tonight, so I have such a day a little shorter, I am shorter than something ",
+            "start_time": "0:13:00.719000",
+            "end_time": "0:13:09.466000"
+        },
+        {
+            "id": 113,
+            "text": "I'm returning ",
+            "start_time": "0:13:10.399000",
+            "end_time": "0:13:10.960000"
+        },
+        {
+            "id": 114,
+            "text": "A little of vacation and today we, well, the last time we talked, the only thing that was that was that today with Marina sat down about the fact that here ",
+            "start_time": "0:13:11.649000",
+            "end_time": "0:13:24.209000"
+        },
+        {
+            "id": 115,
+            "text": "And about yours, respectively ",
+            "start_time": "0:13:25.129000",
+            "end_time": "0:13:27.569000"
+        },
+        {
+            "id": 116,
+            "text": "What ",
+            "start_time": "0:13:28.009000",
+            "end_time": "0:13:28.370000"
+        },
+        {
+            "id": 117,
+            "text": "The news is short of these weeks and a half weeks ",
+            "start_time": "0:13:29.559000",
+            "end_time": "0:13:32.619000"
+        },
+        {
+            "id": 118,
+            "text": "She told me about her successes ",
+            "start_time": "0:13:33.089000",
+            "end_time": "0:13:35.409000"
+        },
+        {
+            "id": 119,
+            "text": "I sent me laptops so that her experiments are accordingly described where she was described. ",
+            "start_time": "0:13:37.079000",
+            "end_time": "0:13:44.399000"
+        },
+        {
+            "id": 120,
+            "text": "And we agreed in general, we assigned 2 tasks for me ",
+            "start_time": "0:13:46.360000",
+            "end_time": "0:13:51.509000"
+        },
+        {
+            "id": 121,
+            "text": "I ",
+            "start_time": "0:13:51.609000",
+            "end_time": "0:13:51.689000"
+        },
+        {
+            "id": 122,
+            "text": "And this is not at all 1 ",
+            "start_time": "0:13:54.069000",
+            "end_time": "0:13:56.129000"
+        },
+        {
+            "id": 123,
+            "text": "I will allocate regularities ",
+            "start_time": "0:13:56.739000",
+            "end_time": "0:13:57.919000"
+        },
+        {
+            "id": 124,
+            "text": "For Russian ",
+            "start_time": "0:13:58.559000",
+            "end_time": "0:13:59.639000"
+        },
+        {
+            "id": 125,
+            "text": "Here's shorter cyboards and now ",
+            "start_time": "0:14:02.050000",
+            "end_time": "0:14:03.969000"
+        },
+        {
+            "id": 126,
+            "text": "In short, I'll see the data first ",
+            "start_time": "0:14:04.260000",
+            "end_time": "0:14:06.809000"
+        },
+        {
+            "id": 127,
+            "text": "A and ",
+            "start_time": "0:14:07.069000",
+            "end_time": "0:14:07.800000"
+        },
+        {
+            "id": 128,
+            "text": "And somehow I will play with her there, I can be there on clustering by highlighting collacation and some then, respectively ",
+            "start_time": "0:14:07.899000",
+            "end_time": "0:14:17.459000"
+        },
+        {
+            "id": 129,
+            "text": "I'll think about what regularities could be for the Russian language for starters ",
+            "start_time": "0:14:18.200000",
+            "end_time": "0:14:22.479000"
+        },
+        {
+            "id": 130,
+            "text": "Do it with us with Marina ",
+            "start_time": "0:14:23.169000",
+            "end_time": "0:14:25.890000"
+        },
+        {
+            "id": 131,
+            "text": "Probably now ",
+            "start_time": "0:14:27.560000",
+            "end_time": "0:14:28.560000"
+        },
+        {
+            "id": 132,
+            "text": "It turns out such a division on the tasks that it ",
+            "start_time": "0:14:29.729000",
+            "end_time": "0:14:31.930000"
+        },
+        {
+            "id": 133,
+            "text": "And for Russian, that is, for English, it turns out ",
+            "start_time": "0:14:32.600000",
+            "end_time": "0:14:37.139000"
+        },
+        {
+            "id": 134,
+            "text": "A lot of things and a little smaller for Russian and now, accordingly, I can take the part that ",
+            "start_time": "0:14:37.686000",
+            "end_time": "0:14:43.699000"
+        },
+        {
+            "id": 135,
+            "text": "For the Russian language ",
+            "start_time": "0:14:44.579000",
+            "end_time": "0:14:45.499000"
+        },
+        {
+            "id": 136,
+            "text": "Those tasks that have not yet been succeeded ",
+            "start_time": "0:14:45.969000",
+            "end_time": "0:14:47.529000"
+        },
+        {
+            "id": 137,
+            "text": "Realize the strength of some reasons that there are libraries ",
+            "start_time": "0:14:47.869000",
+            "end_time": "0:14:51.780000"
+        },
+        {
+            "id": 138,
+            "text": "Here a ",
+            "start_time": "0:14:57.110000",
+            "end_time": "0:14:58.070000"
+        },
+        {
+            "id": 139,
+            "text": "What else ",
+            "start_time": "0:14:58.629000",
+            "end_time": "0:14:59.090000"
+        },
+        {
+            "id": 140,
+            "text": "Yes, and this task, respectively, I will try to play those things that ",
+            "start_time": "0:15:00.230000",
+            "end_time": "0:15:04.249000"
+        },
+        {
+            "id": 141,
+            "text": "Marina has already managed to make them in English to reproduce them for Russian ",
+            "start_time": "0:15:05.189000",
+            "end_time": "0:15:10.289000"
+        },
+        {
+            "id": 142,
+            "text": "Including the topic of the call determines ",
+            "start_time": "0:15:10.970000",
+            "end_time": "0:15:13.589000"
+        },
+        {
+            "id": 143,
+            "text": "Then well, in general, the topic of the call is there ",
+            "start_time": "0:15:15.249000",
+            "end_time": "0:15:17.760000"
+        },
+        {
+            "id": 144,
+            "text": "A few keywords about what the bell happened for English is the beret, it turns out for Russian, I just have to find what we can use for self -realization in essence and 2 is also in Russian to try to highlight these designs on regularities, namely, on some syntactic Dependencies such as St. Ingosdan ",
+            "start_time": "0:15:17.879000",
+            "end_time": "0:15:46.539000"
+        },
+        {
+            "id": 145,
+            "text": "How good it is ",
+            "start_time": "0:15:48.219000",
+            "end_time": "0:15:52.679000"
+        },
+        {
+            "id": 146,
+            "text": "Very good ",
+            "start_time": "0:15:52.819000",
+            "end_time": "0:15:53.819000"
+        },
+        {
+            "id": 147,
+            "text": "It's good that it died very correctly because I also thought, too, somewhere somewhere in the late June in early July, maybe we’ll go somewhere ",
+            "start_time": "0:15:55.079000",
+            "end_time": "0:16:08.939000"
+        },
+        {
+            "id": 148,
+            "text": "Well, well, so ",
+            "start_time": "0:16:09.729000",
+            "end_time": "0:16:12.270000"
+        },
+        {
+            "id": 149,
+            "text": "About this ",
+            "start_time": "0:16:14.079000",
+            "end_time": "0:16:14.659000"
+        },
+        {
+            "id": 150,
+            "text": "I really liked it, but in Armenia it is also cool but ",
+            "start_time": "0:16:17.070000",
+            "end_time": "0:16:19.869000"
+        },
+        {
+            "id": 151,
+            "text": "In general, if that ",
+            "start_time": "0:16:20.639000",
+            "end_time": "0:16:22.020000"
+        },
+        {
+            "id": 152,
+            "text": "Some cool places ",
+            "start_time": "0:16:22.459000",
+            "end_time": "0:16:25.119000"
+        },
+        {
+            "id": 153,
+            "text": "Okay is gorgeous ",
+            "start_time": "0:16:26.510000",
+            "end_time": "0:16:27.899000"
+        },
+        {
+            "id": 154,
+            "text": "Good ",
+            "start_time": "0:16:27.959000",
+            "end_time": "0:16:28.299000"
+        },
+        {
+            "id": 155,
+            "text": "So I told Marina ",
+            "start_time": "0:16:29.659000",
+            "end_time": "0:16:31.599000"
+        },
+        {
+            "id": 156,
+            "text": "When you haven't connected yet, I really plan ",
+            "start_time": "0:16:32.349000",
+            "end_time": "0:16:37.209000"
+        },
+        {
+            "id": 157,
+            "text": "Now in the near future ",
+            "start_time": "0:16:38.089000",
+            "end_time": "0:16:39.369000"
+        },
+        {
+            "id": 158,
+            "text": "Build all the developments that we now have ",
+            "start_time": "0:16:41.219000",
+            "end_time": "0:16:44.859000"
+        },
+        {
+            "id": 159,
+            "text": "And already pour it all on hosting and give it further so that it is already ",
+            "start_time": "0:16:45.499000",
+            "end_time": "0:16:50.459000"
+        },
+        {
+            "id": 160,
+            "text": "At least with something I went on ",
+            "start_time": "0:16:50.879000",
+            "end_time": "0:16:54.060000"
+        },
+        {
+            "id": 161,
+            "text": "In the meetings, in short, so that we would not slow down, it could work, that is, we already have a ready -made one and is going to that is, we have left for such a full -fledged ",
+            "start_time": "0:16:56.019000",
+            "end_time": "0:17:08.560000"
+        },
+        {
+            "id": 162,
+            "text": "Small duties for self -realization, well, in the sense of this redut, I call everything that we are being built and you are building and you ",
+            "start_time": "0:17:09.680000",
+            "end_time": "0:17:17.859000"
+        },
+        {
+            "id": 163,
+            "text": "Small duties + Introduce this all here in the project of the Metiz ",
+            "start_time": "0:17:19.839000",
+            "end_time": "0:17:25.599000"
+        },
+        {
+            "id": 164,
+            "text": "+ respectively, small edits on the front -end and ultimately put all this on hosting in ",
+            "start_time": "0:17:26.390000",
+            "end_time": "0:17:33.869000"
+        },
+        {
+            "id": 165,
+            "text": "Then give Dasha ",
+            "start_time": "0:17:34.469000",
+            "end_time": "0:17:35.809000"
+        },
+        {
+            "id": 166,
+            "text": "Accordingly, that I have already been required of me now, I have already listed this practice ",
+            "start_time": "0:17:36.830000",
+            "end_time": "0:17:41.760000"
+        },
+        {
+            "id": 167,
+            "text": "Antenduus from embedding from Marina to finish it ",
+            "start_time": "0:17:41.799000",
+            "end_time": "0:17:46.039000"
+        },
+        {
+            "id": 168,
+            "text": "All that Marina wanted to finish + be sure to put in the repository so that I just watch it was more convenient for me ",
+            "start_time": "0:17:47.599000",
+            "end_time": "0:17:55.439000"
+        },
+        {
+            "id": 169,
+            "text": "By the way, I am probably a transcable repository ",
+            "start_time": "0:17:57.180000",
+            "end_time": "0:18:00.860000"
+        },
+        {
+            "id": 170,
+            "text": "I will update ",
+            "start_time": "0:18:01.450000",
+            "end_time": "0:18:02.509000"
+        },
+        {
+            "id": 171,
+            "text": "Well ",
+            "start_time": "0:18:03.950000",
+            "end_time": "0:18:04.049000"
+        },
+        {
+            "id": 172,
+            "text": "There you need to add your segmential, because just the same, you use the transcractor, so you just tighten the changes and will use the segmentation ",
+            "start_time": "0:18:04.649000",
+            "end_time": "0:18:16.569000"
+        },
+        {
+            "id": 173,
+            "text": "I think there will make some kind of flag so that you can ",
+            "start_time": "0:18:16.769000",
+            "end_time": "0:18:19.630000"
+        },
+        {
+            "id": 174,
+            "text": "Turn on and off segmentation ",
+            "start_time": "0:18:20.479000",
+            "end_time": "0:18:22.619000"
+        },
+        {
+            "id": 175,
+            "text": "To ",
+            "start_time": "0:18:23.049000",
+            "end_time": "0:18:23.349000"
+        },
+        {
+            "id": 176,
+            "text": "That you didn't slow down ",
+            "start_time": "0:18:26.169000",
+            "end_time": "0:18:27.369000"
+        },
+        {
+            "id": 177,
+            "text": "Well, and accordingly, I wanted to ask you Mair on whether you can see what Marina was talking about now how Google can define a language ",
+            "start_time": "0:18:27.859000",
+            "end_time": "0:18:40.560000"
+        },
+        {
+            "id": 178,
+            "text": "So good ",
+            "start_time": "0:18:42.369000",
+            "end_time": "0:18:43.789000"
+        },
+        {
+            "id": 179,
+            "text": "Yes, look and next time ",
+            "start_time": "0:18:47.020000",
+            "end_time": "0:18:49.599000"
+        },
+        {
+            "id": 180,
+            "text": "We will probably call us on Sunday now on Sunday on Sunday just to finish all these small things so that again the weeks are already purely to lay out ",
+            "start_time": "0:18:50.590000",
+            "end_time": "0:19:01.070000"
+        },
+        {
+            "id": 181,
+            "text": "Well, there is a built -in calculation ",
+            "start_time": "0:19:02.920000",
+            "end_time": "0:19:04.279000"
+        },
+        {
+            "id": 182,
+            "text": "So I think let's have local plans for Sunday, we have it ",
+            "start_time": "0:19:05.319000",
+            "end_time": "0:19:10.560000"
+        },
+        {
+            "id": 183,
+            "text": "Mairna see how Google defines the language + that you have time in the Russian language, that is, that only everything that you can do and that you won’t have time to put Marina then post repositories and finish what I wanted to finish, I understand Marin and you have a reminder and well that the date is time and so on and again ",
+            "start_time": "0:19:11.699000",
+            "end_time": "0:19:39.199000"
+        },
+        {
+            "id": 184,
+            "text": "There is no time and days of the week I added the date I have not added yet and there was simply no longer even there ",
+            "start_time": "0:19:40.359000",
+            "end_time": "0:19:48.619000"
+        },
+        {
+            "id": 185,
+            "text": "What is this patricia from our data and I am not yet touching ",
+            "start_time": "0:19:50.080000",
+            "end_time": "0:19:53.560000"
+        },
+        {
+            "id": 186,
+            "text": "We add, I just wanted ",
+            "start_time": "0:19:55.099000",
+            "end_time": "0:19:56.739000"
+        },
+        {
+            "id": 187,
+            "text": "English as much as it is more comfortable ",
+            "start_time": "0:19:57.560000",
+            "end_time": "0:19:58.859000"
+        },
+        {
+            "id": 188,
+            "text": "Build it can be possible at a minimum ",
+            "start_time": "0:19:59.859000",
+            "end_time": "0:20:02.069000"
+        },
+        {
+            "id": 189,
+            "text": "Just switch the tongue there and the main ",
+            "start_time": "0:20:03.309000",
+            "end_time": "0:20:05.749000"
+        },
+        {
+            "id": 190,
+            "text": "So that you can not start the Marut and ",
+            "start_time": "0:20:06.570000",
+            "end_time": "0:20:09.129000"
+        },
+        {
+            "id": 191,
+            "text": "I understand so well, but now you have such things as tomorrow the day after tomorrow ",
+            "start_time": "0:20:13.029000",
+            "end_time": "0:20:19.769000"
+        },
+        {
+            "id": 192,
+            "text": "Yes tomorrow the day after tomorrow is ",
+            "start_time": "0:20:20.319000",
+            "end_time": "0:20:21.839000"
+        },
+        {
+            "id": 193,
+            "text": "Well, then everything is fine, well, then post the repository, put it up and let's start building it all ",
+            "start_time": "0:20:22.239000",
+            "end_time": "0:20:30.640000"
+        },
+        {
+            "id": 194,
+            "text": "Let's ",
+            "start_time": "0:20:31.729000",
+            "end_time": "0:20:32.290000"
+        },
+        {
+            "id": 195,
+            "text": "And you will definitely pull yourself a repository for yourself ",
+            "start_time": "0:20:33.830000",
+            "end_time": "0:20:37.729000"
+        },
+        {
+            "id": 196,
+            "text": "I appeared, I don’t remember Marina, Moira has already connected to a call or not when I talked about it, but we had a methy repository at the repository ",
+            "start_time": "0:20:38.579000",
+            "end_time": "0:20:48.780000"
+        },
+        {
+            "id": 197,
+            "text": "It is called that ",
+            "start_time": "0:20:49.289000",
+            "end_time": "0:20:50.580000"
+        },
+        {
+            "id": 198,
+            "text": "Metiza Metiza you are also sure to sponsk it and you can test it too ",
+            "start_time": "0:20:50.679000",
+            "end_time": "0:20:57.719000"
+        },
+        {
+            "id": 199,
+            "text": "There to test it to twist it all to do it all ",
+            "start_time": "0:20:59.349000",
+            "end_time": "0:21:02.290000"
+        },
+        {
+            "id": 200,
+            "text": "That's just to see how it will be with us ",
+            "start_time": "0:21:03.269000",
+            "end_time": "0:21:06.749000"
+        },
+        {
+            "id": 201,
+            "text": "And I will ping when we renew ",
+            "start_time": "0:21:07.310000",
+            "end_time": "0:21:10.189000"
+        },
+        {
+            "id": 202,
+            "text": "Transkiber audience ",
+            "start_time": "0:21:11.649000",
+            "end_time": "0:21:13.430000"
+        },
+        {
+            "id": 203,
+            "text": "This is Fedor there it turns out how to run it with the help of Eppide ",
+            "start_time": "0:21:14.489000",
+            "end_time": "0:21:20.410000"
+        },
+        {
+            "id": 204,
+            "text": "Launch and just just this ",
+            "start_time": "0:21:22.279000",
+            "end_time": "0:21:25.059000"
+        },
+        {
+            "id": 205,
+            "text": "Just you open this file, you click here Play, well, in the sense of starting it, and there he will first swear on what is not, but I will most likely add to Requirements now and, accordingly, see what will happen there ",
+            "start_time": "0:21:26.799000",
+            "end_time": "0:21:44.359000"
+        },
+        {
+            "id": 206,
+            "text": "Well, in the sense of when I will do it, I think I think you will just be enough to do and Planestal Requiermance and that’s it ",
+            "start_time": "0:21:46.589000",
+            "end_time": "0:21:53.669000"
+        },
+        {
+            "id": 207,
+            "text": "Here I am the only thing that I don’t write at the python that is, well, I already seemed to me the main programming language, all the same, something more upeste, like there, Sharpa, without leaving a job on Sharpe, that's why the Refax Code is welcome at your discretion at your discretion ",
+            "start_time": "0:21:55.290000",
+            "end_time": "0:22:18.899000"
+        },
+        {
+            "id": 208,
+            "text": "Well good ",
+            "start_time": "0:22:20.380000",
+            "end_time": "0:22:25.699000"
+        },
+        {
+            "id": 209,
+            "text": "You know, by the way, I'm sorry ",
+            "start_time": "0:22:30.909000",
+            "end_time": "0:22:32.849000"
+        },
+        {
+            "id": 210,
+            "text": "Don't say say to say, I wanted to say here, Marina will turn to the repository and, in principle, you can try ",
+            "start_time": "0:22:33.240000",
+            "end_time": "0:22:42.259000"
+        },
+        {
+            "id": 211,
+            "text": "Introduce him to integrate the sense of not to embed so that he was building this in the transcript already doing everything, but just just somewhere here to throw daddy here and in the right place simply call me, in general, in the future ",
+            "start_time": "0:22:44.309000",
+            "end_time": "0:23:02.409000"
+        },
+        {
+            "id": 212,
+            "text": "Here is purely from you from your script, you also keep it in mind because ",
+            "start_time": "0:23:03.249000",
+            "end_time": "0:23:08.349000"
+        },
+        {
+            "id": 213,
+            "text": "It will just be easier then I will need to integrate, I just need to go to the entrance ",
+            "start_time": "0:23:10.219000",
+            "end_time": "0:23:15.686000"
+        },
+        {
+            "id": 214,
+            "text": "This ",
+            "start_time": "0:23:18.410000",
+            "end_time": "0:23:18.649000"
+        },
+        {
+            "id": 215,
+            "text": "GSON rally that is already marked with people well, that is, by voices, well, you remember about how our data looks like, and probably ",
+            "start_time": "0:23:20.469000",
+            "end_time": "0:23:29.629000"
+        },
+        {
+            "id": 216,
+            "text": "Now now now he is probably here, yes, all the old ones will need to open something too, but roughly speaking to your script will succumb to something like that ",
+            "start_time": "0:23:33.969000",
+            "end_time": "0:23:45.670000"
+        },
+        {
+            "id": 217,
+            "text": "So you will need from you ",
+            "start_time": "0:23:46.079000",
+            "end_time": "0:23:50.010000"
+        },
+        {
+            "id": 218,
+            "text": "In the same Samara, in the same Jesson, add new these fields here ",
+            "start_time": "0:23:50.549000",
+            "end_time": "0:23:58.109000"
+        },
+        {
+            "id": 219,
+            "text": "By the type of samary by the type of what you still have Keywords Tasks ",
+            "start_time": "0:23:58.829000",
+            "end_time": "0:24:03.049000"
+        },
+        {
+            "id": 220,
+            "text": "Reminders everything that is being built for you now ",
+            "start_time": "0:24:05.499000",
+            "end_time": "0:24:07.559000"
+        },
+        {
+            "id": 221,
+            "text": "Either if you can just show what your script displays ",
+            "start_time": "0:24:08.389000",
+            "end_time": "0:24:14.430000"
+        },
+        {
+            "id": 222,
+            "text": "What is the output from it and I will do it myself, who will be shorter than that and it will take care of it in the 1st turn and it is better to post it just repositories is the most important thing that it just works, that is, you will have text or something else to the exit to the input. ",
+            "start_time": "0:24:16.449000",
+            "end_time": "0:24:36.129000"
+        },
+        {
+            "id": 223,
+            "text": "Some kind of meaningful out that we will work with ",
+            "start_time": "0:24:38.809000",
+            "end_time": "0:24:41.749000"
+        },
+        {
+            "id": 224,
+            "text": "Yeah well, with those where the most where and where is the normal variable in general and can return ",
+            "start_time": "0:24:42.639000",
+            "end_time": "0:24:49.319000"
+        },
+        {
+            "id": 225,
+            "text": "I think I had no problems but ",
+            "start_time": "0:24:50.909000",
+            "end_time": "0:24:52.849000"
+        },
+        {
+            "id": 226,
+            "text": "Where it stands out with color it was clean ",
+            "start_time": "0:24:53.479000",
+            "end_time": "0:24:58"
+        },
+        {
+            "id": 227,
+            "text": "Locally local such an opportunity, that is, I found how it is done, but I don't know how it is ",
+            "start_time": "0:24:58.659000",
+            "end_time": "0:25:04.793000"
+        },
+        {
+            "id": 228,
+            "text": "It will be possible in ",
+            "start_time": "0:25:05.439000",
+            "end_time": "0:25:06.999000"
+        },
+        {
+            "id": 229,
+            "text": "To display exactly on the front ",
+            "start_time": "0:25:08.949000",
+            "end_time": "0:25:10.469000"
+        },
+        {
+            "id": 230,
+            "text": "Well, this selection of color ",
+            "start_time": "0:25:13.030000",
+            "end_time": "0:25:14.449000"
+        },
+        {
+            "id": 231,
+            "text": "Listen to this I will take care, ",
+            "start_time": "0:25:17.179000",
+            "end_time": "0:25:31.559000"
+        },
+        {
+            "id": 232,
+            "text": "About plans we talked about Happy Endan ",
+            "start_time": "0:25:31.659000",
+            "end_time": "0:25:33.659000"
+        },
+        {
+            "id": 233,
+            "text": "Yes, bin is given there there is just the color that such a rigid is done in Somalia that the color stands out in color, that just where there is it, you can figure it out is easy that is, there is a conditionally speaking, you can just do 2 tags is there, we’ll say a plan that is a plan that is that Just the same, you stand out in Samara and there is an ordinary plan, which is, well, you just stand out in the text in green ",
+            "start_time": "0:25:35.349000",
+            "end_time": "0:26:09.769000"
+        },
+        {
+            "id": 234,
+            "text": "Regarding the display, I will do this, you don’t even worry just the most important thing is that some kind of certain proposal has a tag that it is or ",
+            "start_time": "0:26:12.640000",
+            "end_time": "0:26:23.400000"
+        },
+        {
+            "id": 235,
+            "text": "A plan or a strict plan or a task, that is, we work with this ",
+            "start_time": "0:26:24.539000",
+            "end_time": "0:26:29.539000"
+        },
+        {
+            "id": 236,
+            "text": "I think I'll see I’ll twist your script, well, you will post it and the control of the replica ",
+            "start_time": "0:26:30.129000",
+            "end_time": "0:26:38.609000"
+        },
+        {
+            "id": 237,
+            "text": "Ikea man ",
+            "start_time": "0:26:40.869000",
+            "end_time": "0:26:41.930000"
+        },
+        {
+            "id": 238,
+            "text": "You mean in the sense of a sentence so that it is in the sense of his replica ",
+            "start_time": "0:26:42.059000",
+            "end_time": "0:26:46.360000"
+        },
+        {
+            "id": 239,
+            "text": "Because I have now ",
+            "start_time": "0:26:47.559000",
+            "end_time": "0:26:48.659000"
+        },
+        {
+            "id": 240,
+            "text": "And I understood ",
+            "start_time": "0:26:50.399000",
+            "end_time": "0:26:52.079000"
+        },
+        {
+            "id": 241,
+            "text": "When it stands out in the text in everything, as it were, the text only retreats there as much with the left and curve ",
+            "start_time": "0:26:56.509000",
+            "end_time": "0:27:02.849000"
+        },
+        {
+            "id": 242,
+            "text": "The amount comes on the right ",
+            "start_time": "0:27:02.909000",
+            "end_time": "0:27:04.200000"
+        },
+        {
+            "id": 243,
+            "text": "Well, it’s good all this all you can solve this is not a problem because at least you can offer that is, everything is united in 1 text here. ",
+            "start_time": "0:27:05.579000",
+            "end_time": "0:27:18.399000"
+        },
+        {
+            "id": 244,
+            "text": "Where he is all broken in such pieces, that is, this is not a proposal is not a problem at least you can just have an IT -school ",
+            "start_time": "0:27:20.119000",
+            "end_time": "0:27:31.819000"
+        },
+        {
+            "id": 245,
+            "text": "That is, we already know their numbers ",
+            "start_time": "0:27:32.310000",
+            "end_time": "0:27:33.729000"
+        },
+        {
+            "id": 246,
+            "text": "In short, put it out later, then I’ll look at it, I’ll see it, and then you and I can either call ourselves or we’ll already discuss this moment as it is. ",
+            "start_time": "0:27:35.959000",
+            "end_time": "0:27:48.760000"
+        },
+        {
+            "id": 247,
+            "text": "I think it will not be too difficult ",
+            "start_time": "0:27:49.719000",
+            "end_time": "0:27:51.799000"
+        },
+        {
+            "id": 248,
+            "text": "So don't worry about this ",
+            "start_time": "0:27:52.159000",
+            "end_time": "0:27:54.090000"
+        },
+        {
+            "id": 249,
+            "text": "OK ",
+            "start_time": "0:27:58.070000",
+            "end_time": "0:27:58.550000"
+        },
+        {
+            "id": 250,
+            "text": "So well, well, in principle, the plans discussed the tasks, too, they discussed, there is anyone ",
+            "start_time": "0:28:00.129000",
+            "end_time": "0:28:07.989000"
+        },
+        {
+            "id": 251,
+            "text": "Something else you can discuss ",
+            "start_time": "0:28:09.869000",
+            "end_time": "0:28:11.429000"
+        },
+        {
+            "id": 252,
+            "text": "I wanted to talk here to ask all the same to clarify you now talked about it, but like me ",
+            "start_time": "0:28:12.199000",
+            "end_time": "0:28:18.380000"
+        },
+        {
+            "id": 253,
+            "text": "Just to ",
+            "start_time": "0:28:19.130000",
+            "end_time": "0:28:19.689000"
+        },
+        {
+            "id": 254,
+            "text": "In short, we have segmentation by the speaker ",
+            "start_time": "0:28:21.279000",
+            "end_time": "0:28:24.939000"
+        },
+        {
+            "id": 255,
+            "text": "Until it has been built -in yes, or it is built -in it is built now in the drift here it is now I will show even now perhaps now a second is a transcractor is utils ",
+            "start_time": "0:28:26.079000",
+            "end_time": "0:28:43.459000"
+        },
+        {
+            "id": 256,
+            "text": "Getz and the shit gyunshin ",
+            "start_time": "0:28:46.359000",
+            "end_time": "0:28:47.980000"
+        },
+        {
+            "id": 257,
+            "text": "Here we have a Whostic Mintation method here ",
+            "start_time": "0:28:49.539000",
+            "end_time": "0:28:51.979000"
+        },
+        {
+            "id": 258,
+            "text": "And in the metiz, this is now in the project in the Metiz repertoire, I will build it in ",
+            "start_time": "0:28:52.459000",
+            "end_time": "0:28:58.606000"
+        },
+        {
+            "id": 259,
+            "text": "In TranskyBer, so that you do not completely let this all the huge meticia in which this content will not be allowed and so on is just Transcriber ",
+            "start_time": "0:29:01.149000",
+            "end_time": "0:29:14.549000"
+        },
+        {
+            "id": 260,
+            "text": "So I will update it ",
+            "start_time": "0:29:15.469000",
+            "end_time": "0:29:16.530000"
+        },
+        {
+            "id": 261,
+            "text": "Well, cool ",
+            "start_time": "0:29:17.439000",
+            "end_time": "0:29:18.630000"
+        },
+        {
+            "id": 262,
+            "text": "Like this ",
+            "start_time": "0:29:20.069000",
+            "end_time": "0:29:21.549000"
+        },
+        {
+            "id": 263,
+            "text": "Maybe ",
+            "start_time": "0:29:23.730000",
+            "end_time": "0:29:24.190000"
+        },
+        {
+            "id": 264,
+            "text": "So is there anything else ",
+            "start_time": "0:29:25.849000",
+            "end_time": "0:29:27.950000"
+        },
+        {
+            "id": 265,
+            "text": "Judge ",
+            "start_time": "0:29:28.209000",
+            "end_time": "0:29:28.689000"
+        },
+        {
+            "id": 266,
+            "text": "So well ",
+            "start_time": "0:29:30.429000",
+            "end_time": "0:29:30.890000"
+        },
+        {
+            "id": 267,
+            "text": "It seems that there is no, that is, I understood my tasks I have about 3 tasks there. ",
+            "start_time": "0:29:31.519000",
+            "end_time": "0:29:37.199000"
+        },
+        {
+            "id": 268,
+            "text": "But ",
+            "start_time": "0:29:37.540000",
+            "end_time": "0:29:38.729000"
+        },
+        {
+            "id": 269,
+            "text": "That is, on my part there are no questions if that ",
+            "start_time": "0:29:39.350000",
+            "end_time": "0:29:42.360000"
+        },
+        {
+            "id": 270,
+            "text": "Yes ",
+            "start_time": "0:29:43.109000",
+            "end_time": "0:29:43.740000"
+        },
+        {
+            "id": 271,
+            "text": "Okay well ",
+            "start_time": "0:29:43.839000",
+            "end_time": "0:29:44.559000"
+        }
+    ],
+    "topic": "flask, recording, afaska",
+    "summary": "You discussed this moment.  It's time to find what we can use for self -realization in essence and 2 is also in Russian to try to highlight these designs on regularities , namely , on some syntactic Dependencies such as St. Ingosdan. ",
+    "task": "Start the recording, have a self -realization, arrange a demonstration, take the part, do 2 tags, pay attention, allocate regularities, throw a file, flood our hosting on his hosting on the French server, putting the background, pull a repository for yourself, take care, have text or something else to the exit, start the Marut и define a language.",
+    "reminder": "We will probably call us on Sunday now on Sunday on Sunday just to finish all these small things so that again the weeks are already purely to lay out ., и 's have local plans for Sunday.",
+    "colored": {
+        "BEEN DONE": [
+            [
+                "...okay then . In general,",
+                "she",
+                "",
+                "said",
+                "",
+                "that",
+                ". But it doesn’t focus on it,..."
+            ],
+            [
+                "..., today on the agenda that",
+                "we",
+                "",
+                "had",
+                "several",
+                "tasks",
+                "on . Finishing self -realization . Marina turned out..."
+            ],
+            [
+                "...then let me start . That",
+                "we",
+                "",
+                "had",
+                "a",
+                "design",
+                ", Sergey, I finished the design, I..."
+            ],
+            [
+                "...had a design, Sergey,",
+                "I",
+                "",
+                "finished",
+                "the",
+                "design",
+                ", I threw it away, then it was..."
+            ],
+            [
+                "..., I finished the design,",
+                "I",
+                "",
+                "threw",
+                "",
+                "it",
+                "away, then it was a little ruled there..."
+            ],
+            [
+                "...ruled there and did it all",
+                "that",
+                "",
+                "I",
+                "",
+                "worked",
+                "in a flask in Python. . The flag..."
+            ],
+            [
+                "...attention to a separate repository,",
+                "we",
+                "have",
+                "appeared",
+                "new",
+                "repositories",
+                "called the Foreign Ministry . That is, in..."
+            ],
+            [
+                "...were put at once at once",
+                "I",
+                "just",
+                "put",
+                "all the",
+                "bags",
+                "in the basic environment, so I just need..."
+            ],
+            [
+                "...document should be displayed . So",
+                "what",
+                "",
+                "I",
+                "",
+                "loaded",
+                ", but actually he was displayed, that is..."
+            ],
+            [
+                "...spreading the leg . Hap,",
+                "I",
+                "",
+                "wrote",
+                "an",
+                "emergence",
+                "and cleaned a little code so that it was..."
+            ],
+            [
+                "...with 2 languages in 1 laptop",
+                "I",
+                "",
+                "had",
+                "too",
+                "much",
+                ". On 2 laptops all this is duplicated a..."
+            ],
+            [
+                "...is duplicated a lot . And",
+                "I",
+                "almost",
+                "did",
+                "",
+                "it",
+                "then today I will download it tomorrow . And..."
+            ],
+            [
+                "...n’t be franking the screen because",
+                "I",
+                "",
+                "added",
+                "a",
+                "reminder",
+                "there in the days of the week and time..."
+            ],
+            [
+                "...I will fill . Yes .",
+                "I",
+                "also",
+                "phoned",
+                "",
+                "me",
+                "and Marina finally phoned her . She will help..."
+            ],
+            [
+                "...you, here I understand how",
+                "I",
+                "",
+                "found",
+                "",
+                "it",
+                ". Such a spontaneous vacation . We went there..."
+            ],
+            [
+                "...Long but . Few hours .",
+                "We",
+                "really",
+                "ate",
+                "the",
+                "waterfall",
+                "were . And then you went to Armenia and..."
+            ],
+            [
+                "...weeks and a half weeks .",
+                "She",
+                "",
+                "told",
+                "",
+                "me",
+                "about her successes . I sent me laptops so..."
+            ],
+            [
+                "...told me about her successes .",
+                "I",
+                "",
+                "sent",
+                "me",
+                "laptops",
+                "so that her experiments are accordingly described where she..."
+            ],
+            [
+                "...And we agreed in general,",
+                "we",
+                "",
+                "assigned",
+                "2",
+                "tasks",
+                "for me . I . And this is not..."
+            ],
+            [
+                "..., so . About this .",
+                "I",
+                "really",
+                "liked",
+                "",
+                "it",
+                ", but in Armenia it is also cool but..."
+            ],
+            [
+                "...is gorgeous . Good . So",
+                "I",
+                "",
+                "told",
+                "",
+                "Marina",
+                ". When you haven't connected yet, I..."
+            ],
+            [
+                "...been required of me now,",
+                "I",
+                "have already",
+                "listed",
+                "this",
+                "practice",
+                ". Antenduus from embedding from Marina to finish it..."
+            ],
+            [
+                "...time and days of the week",
+                "I",
+                "",
+                "added",
+                "the",
+                "date",
+                "I have not added yet and there was simply..."
+            ],
+            [
+                "...I talked about it, but",
+                "we",
+                "",
+                "had",
+                "a methy",
+                "repository",
+                "at the repository . It is called that ...."
+            ],
+            [
+                "...python that is, well,",
+                "I",
+                "already",
+                "seemed",
+                "to me the main programming",
+                "language",
+                ", all the same, something more upeste,..."
+            ],
+            [
+                "...and can return . I think",
+                "I",
+                "",
+                "had",
+                "no",
+                "problems",
+                "but . Where it stands out with color it..."
+            ],
+            [
+                "...is no, that is,",
+                "I",
+                "",
+                "understood",
+                "my",
+                "tasks",
+                "I have about 3 tasks there. . But..."
+            ]
+        ],
+        "TODO": [
+            [
+                "...out for Russian, I just",
+                "have",
+                "",
+                "to",
+                "",
+                "find",
+                "what we can",
+                "use",
+                "for self -realization in essence and 2 is also in Russian to try to..."
+            ],
+            [
+                "...here on this tab, now",
+                "we",
+                "",
+                "can",
+                "",
+                "wait",
+                "a",
+                "little",
+                "in principle of 8 enter is already on this tab, our document should..."
+            ],
+            [
+                "...are here . More precisely,",
+                "I",
+                "",
+                "will",
+                "",
+                "take",
+                "",
+                "it",
+                "a do this, we will plan to continue . And at the end..."
+            ],
+            [
+                "...are here . More precisely,",
+                "I",
+                "",
+                "will",
+                "",
+                "take",
+                "it a",
+                "do",
+                "this, we will plan to continue . And at the end there will..."
+            ],
+            [
+                "...Well, we will finish .",
+                "We",
+                "",
+                "will",
+                "still",
+                "finish",
+                "",
+                "this",
+                "from our presentation, I didn’t have to draw it, I just..."
+            ],
+            [
+                ".... It is very important now",
+                "we",
+                "",
+                "will",
+                "",
+                "discuss",
+                "",
+                "this",
+                "how we will do this and when we build Marina Stript by self -realization..."
+            ],
+            [
+                "...now we will discuss this how",
+                "we",
+                "",
+                "will",
+                "",
+                "do",
+                "",
+                "this",
+                "and when we build Marina Stript by self -realization, we will have a..."
+            ],
+            [
+                "..., something will change here and",
+                "we",
+                "",
+                "will",
+                "",
+                "post",
+                "",
+                "it",
+                "in this form . So, in principle, I convey everything to my..."
+            ],
+            [
+                "...I almost did it then today",
+                "I",
+                "",
+                "will",
+                "",
+                "download",
+                "",
+                "it",
+                "tomorrow . And I write you a link . And then I won’t..."
+            ],
+            [
+                "...will be in the laptop .",
+                "Which",
+                "",
+                "I",
+                "",
+                "will",
+                "",
+                "fill",
+                ". Yes . I also phoned me and Marina finally phoned her . She..."
+            ],
+            [
+                "...of proposals and segmentation probably .",
+                "You",
+                "",
+                "would",
+                "",
+                "help",
+                "",
+                "her",
+                ". To select 1 speaker . So good you are, by the way..."
+            ],
+            [
+                "...first if it turns out already",
+                "we",
+                "",
+                "can",
+                "",
+                "spread",
+                "",
+                "it",
+                "and it is spinning . So that every time there is not for every..."
+            ],
+            [
+                "...put to work . So that",
+                "Marina",
+                "",
+                "can",
+                "also",
+                "add",
+                "",
+                "her",
+                ". Yeah well, then let's discuss the tasks, we’ll discuss..."
+            ],
+            [
+                "...Russian and now, accordingly,",
+                "I",
+                "",
+                "can",
+                "",
+                "take",
+                "the part",
+                "that",
+                ". For the Russian language . Those tasks that have not yet been succeeded..."
+            ],
+            [
+                "..., I just have to find",
+                "what",
+                "",
+                "we",
+                "",
+                "can",
+                "",
+                "use",
+                "for self -realization in essence and 2 is also in Russian to try to..."
+            ],
+            [
+                "..., look and next time .",
+                "We",
+                "",
+                "will",
+                "probably",
+                "call",
+                "",
+                "us",
+                "on Sunday now on Sunday on Sunday just to finish all these small things..."
+            ],
+            [
+                "...that is, that only everything",
+                "that",
+                "",
+                "you",
+                "",
+                "can",
+                "",
+                "do",
+                "and that you won’t have time to put Marina then post repositories and..."
+            ],
+            [
+                "...all . Let's . And",
+                "you",
+                "",
+                "will",
+                "definitely",
+                "pull",
+                "",
+                "yourself",
+                "a repository for yourself . I appeared, I don’t remember Marina,..."
+            ],
+            [
+                "...also sure to sponsk it and",
+                "you",
+                "",
+                "can",
+                "",
+                "test",
+                "",
+                "it",
+                "too . There to test it to twist it all to do it all..."
+            ],
+            [
+                "...is the output from it and",
+                "I",
+                "",
+                "will",
+                "",
+                "do",
+                "",
+                "it",
+                "myself, who will be shorter than that and it will take care of..."
+            ],
+            [
+                "...just where there is it,",
+                "you",
+                "",
+                "can",
+                "",
+                "figure",
+                "",
+                "it",
+                "out is easy that is, there is a conditionally speaking, you can..."
+            ],
+            [
+                "...green . Regarding the display,",
+                "I",
+                "",
+                "will",
+                "",
+                "do",
+                "",
+                "this",
+                ", you don’t even worry just the most important thing is that some..."
+            ],
+            [
+                "...twist your script, well,",
+                "you",
+                "",
+                "will",
+                "",
+                "post",
+                "",
+                "it",
+                "and the control of the replica . Ikea man . You mean in the..."
+            ],
+            [
+                "...it’s good all this all",
+                "you",
+                "",
+                "can",
+                "",
+                "solve",
+                "",
+                "this",
+                "is not a problem because at least you can offer that is, everything..."
+            ],
+            [
+                "...’ll see it, and then",
+                "you",
+                "and I",
+                "can",
+                "either",
+                "call",
+                "",
+                "ourselves",
+                "or we’ll already discuss this moment as it is. . I think..."
+            ],
+            [
+                "...project in the Metiz repertoire,",
+                "I",
+                "",
+                "will",
+                "",
+                "build",
+                "",
+                "it",
+                "in . In TranskyBer, so that you do not completely let this all..."
+            ],
+            [
+                "...on is just Transcriber . So",
+                "I",
+                "",
+                "will",
+                "",
+                "update",
+                "",
+                "it",
+                ". Well, cool . Like this . Maybe . So is there anything..."
+            ],
+            [
+                "...",
+                "I",
+                "",
+                "will",
+                "",
+                "start",
+                "the",
+                "recording",
+                "right away by the way . Yes right away . Now Marina will join..."
+            ],
+            [
+                "...in . By the way,",
+                "you",
+                "",
+                "will",
+                "",
+                "pay",
+                "",
+                "attention",
+                "to a separate repository, we have appeared new repositories called the Foreign Ministry..."
+            ],
+            [
+                "...dragon drop zones . In which",
+                "you",
+                "",
+                "can",
+                "",
+                "throw",
+                "a",
+                "file",
+                "and send it to download but or choose a device in fact, the..."
+            ],
+            [
+                "...beautifully, well, at least",
+                "it",
+                "",
+                "can",
+                "be",
+                "putting",
+                "the",
+                "background",
+                "that it can be that something else, but somehow more beautiful, too..."
+            ],
+            [
+                "...This is just super well and",
+                "he",
+                "",
+                "will",
+                "still",
+                "flood",
+                "our",
+                "hosting",
+                "on his hosting on the French server, and he is ready to do..."
+            ],
+            [
+                "...Marina Stript by self -realization,",
+                "we",
+                "",
+                "will",
+                "",
+                "have",
+                "a self",
+                "-realization",
+                "here, something will change here and we will post it in this form..."
+            ],
+            [
+                "...word . Marina come on and",
+                "I",
+                "",
+                "can",
+                "probably",
+                "arrange",
+                "a",
+                "demonstration",
+                ". So about spreading the leg . Hap, I wrote an emergence and..."
+            ],
+            [
+                "...is not at all 1 .",
+                "I",
+                "",
+                "will",
+                "",
+                "allocate",
+                "",
+                "regularities",
+                ". For Russian . Here's shorter cyboards and now . In short,..."
+            ],
+            [
+                "...Russian and now, accordingly,",
+                "I",
+                "",
+                "can",
+                "",
+                "take",
+                "the",
+                "part",
+                "that . For the Russian language . Those tasks that have not yet been..."
+            ],
+            [
+                "...Marina was talking about now how",
+                "Google",
+                "",
+                "can",
+                "",
+                "define",
+                "a",
+                "language",
+                ". So good . Yes, look and next time . We will probably..."
+            ],
+            [
+                "...and the main . So that",
+                "you",
+                "",
+                "can",
+                "not",
+                "start",
+                "the",
+                "Marut",
+                "and . I understand so well, but now you have such things as..."
+            ],
+            [
+                "...all . Let's . And",
+                "you",
+                "",
+                "will",
+                "definitely",
+                "pull",
+                "yourself a",
+                "repository",
+                "for yourself . I appeared, I don’t remember Marina, Moira has..."
+            ],
+            [
+                "...will be shorter than that and",
+                "it",
+                "",
+                "will",
+                "",
+                "take",
+                "",
+                "care",
+                "of it in the 1st turn and it is better to post it just..."
+            ],
+            [
+                "...just works, that is,",
+                "you",
+                "",
+                "will",
+                "",
+                "have",
+                "",
+                "text",
+                "or something else to the exit to the input. . Some kind of..."
+            ],
+            [
+                "...of color . Listen to this",
+                "I",
+                "",
+                "will",
+                "",
+                "take",
+                "",
+                "care",
+                ", . About plans we talked about Happy Endan . Yes, bin is..."
+            ],
+            [
+                "...there is a conditionally speaking,",
+                "you",
+                "",
+                "can",
+                "just",
+                "do",
+                "2",
+                "tags",
+                "is there, we’ll say a plan that is a plan that is..."
+            ]
+        ]
+    }
+}
