@@ -6,3 +6,4 @@ pymorphy2
 scikit-learn
 keybert
 langdetect
+transformers

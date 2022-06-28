@@ -27,6 +27,29 @@ def process_json(transcript_json):
     return text
 
 
+def split_text_by_speaker(transcript_json):
+    
+    texts_by_speaker = {}
+    speaker = "SPEAKER_00"
+    
+    for message in transcript_json['message_list']:
+        if message['speaker'] in texts_by_speaker.keys():
+            if message['speaker']==speaker:
+            
+                texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
+                texts_by_speaker[message['speaker']]+=' '+message['text'][0].lower()+message['text'][1:]+' '
+            else:
+                texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
+                texts_by_speaker[message['speaker']]+='. '+message['text']+'.'
+                speaker = message['speaker']
+        else:
+            texts_by_speaker[message['speaker']]=message['text']+'.'
+            if message['speaker']!=speaker:
+                speaker = message['speaker']
+                
+    return texts_by_speaker
+
+
 def get_tasks(text, doc, nlp, dep_matches):
 
     tasks = []
@@ -44,7 +67,35 @@ def get_tasks(text, doc, nlp, dep_matches):
             tasks.append(morph.parse(doc[matches[0]].text)[
                          0].normal_form+' '+join_dependant_tokens(3, doc, matches))
 
-    return join_phrases(list(set(tasks)), upper=True)
+    return list(set(tasks))
+
+
+def get_personal_tasks(transcript_json, nlp, dep_matcher):
+    
+    tasks_by_speaker = {}
+    
+    texts_by_speaker = split_text_by_speaker(transcript_json)
+    
+    for key in texts_by_speaker.keys():
+        
+        tasks = []
+        doc = nlp(texts_by_speaker[key])
+        dep_matches = dep_matcher(doc)
+        
+        for i, match in enumerate(dep_matches):
+            pattern_name = match[0]
+            matches = match[1]
+            
+            if nlp.vocab[pattern_name].text in ['task','want','need']:
+                
+                tasks.append(join_dependant_tokens(1, doc, matches))
+    
+            elif nlp.vocab[pattern_name].text == 'strong_do':
+
+                tasks.append(morph.parse(doc[matches[0]].text)[0].normal_form+' '+join_dependant_tokens(3, doc, matches))
+        tasks_by_speaker[key] = (list(set(tasks)))
+        
+    return tasks_by_speaker
 
 
 def get_en_tasks(text, doc, nlp, dep_matches):
@@ -60,7 +111,7 @@ def get_en_tasks(text, doc, nlp, dep_matches):
             tasks.append(doc[matches[0]].text+' ' +
                          join_dependant_tokens(3, doc, matches))
 
-    return join_phrases(list(set(tasks)), upper=True)
+    return list(set(tasks))
 
 
 def get_reminder(text, doc, nlp, dep_matches):
@@ -73,7 +124,7 @@ def get_reminder(text, doc, nlp, dep_matches):
         if nlp.vocab[pattern_name].text in ['weekday', 'time', 'remind']:
             reminders.append(join_dependant_tokens(0, doc, matches))
 
-    return join_phrases(list(set(reminders))) or 'Пока нет напоминаний.'
+    return list(set(reminders))
 
 
 def get_en_reminder(text, doc, nlp, dep_matches):
@@ -86,53 +137,30 @@ def get_en_reminder(text, doc, nlp, dep_matches):
         if nlp.vocab[pattern_name].text in ['weekday', 'time', 'remind']:
             reminders.append(join_dependant_tokens(0, doc, matches))
 
-    return join_phrases(list(set(reminders))) or 'No reminders for today.'
+    return list(set(reminders))
 
 
 def get_summary(text, doc, nlp, dep_matches, lang):
 
-    been_done = []
-    plans = []
-    summary_done = ''
-    summary_plan = ''
+    return "<summary>"
 
-    for i, match in enumerate(dep_matches):
-        pattern_name = match[0]
-        matches = match[1]
-        if nlp.vocab[pattern_name].text == 'been_done' and len(matches) > 2:
+def get_mbart_ru_summary(text, model, tokenizer):
 
-            verb_to_prts = morph.parse(doc[matches[0]].text)[0].inflect({'PRTS', doc[matches[2]].morph.get(
-                "Number")[0].lower(), gen_map[doc[matches[2]].morph.get("Gender")[0]]})
-            noun_to_nomn = morph.parse(doc[matches[2]].text)[0].inflect(
-                {'nomn'}) or morph.parse(doc[matches[2]].text)[0]
-
-            if verb_to_prts:
-                been_done.append([noun_to_nomn.word, num_map[lang][doc[matches[2]].morph.get(
-                    "Number")[0]], verb_to_prts.word])
-
-        elif nlp.vocab[pattern_name].text == 'need':
-
-            plans.append(join_dependant_tokens(1, doc, matches))
-
-    for i, output in enumerate(been_done):
-        if i == 0:
-            summary_done += output[1][0].upper() + output[1][1:] + \
-                ' ' + output[2] + ' ' + output[0] + ', '
-
-        elif i == len(been_done)-1:
-            summary_done += output[2] + ' ' + output[0]+'.'
-        else:
-            summary_done += output[2] + ' ' + output[0]+', '
-
-    for i, output in enumerate(plans):
-        if i == 0:
-            summary_plan += random.choice(plan_phrases[lang])+' '+output + ', '
-        elif i == len(plans)-1:
-            summary_plan += ' '+output + '.'
-        else:
-            summary_plan += ' '+output + ','
-
-    return summary_done+' '+summary_plan
+    input_ids = tokenizer(
+    [text],
+    max_length=600,
+    truncation=True,
+    return_tensors="pt",
+)["input_ids"]
+    
+    output_ids = model.generate(
+    input_ids=input_ids,
+    no_repeat_ngram_size=4
+)[0]
+    summary = tokenizer.decode(output_ids, skip_special_tokens=True)
+    big_regex = re.compile('|'.join(map(re.escape, summary_junk)))
+    
+    return(big_regex.sub("Обсудили", summary))
 
 
 def get_en_summary(text, doc, nlp, dep_matches, lang):
@@ -211,20 +239,14 @@ def get_TODO(text, doc, nlp, dep_matches):
 
 def get_keywords(text):
 
-    return "<keywords>"
+    return []
 
 
 def get_en_keywords(text):
 
     keywords = kw_model.extract_keywords(text)[:3]
-    topic = ''
-    for i, keyword in enumerate(keywords):
-        if i == len(keywords)-1:
-            topic += keyword[0]
-        else:
-            topic += keyword[0]+', '
 
-    return topic
+    return [keyword[0] for i, keyword in enumerate(keywords)]
 
 
 def extract_dependant_tokens(tokens, dependant_tokens):
@@ -296,6 +318,7 @@ pron_stopwords = ["нибудь", "который", "я",
 verb_stopwords = ['told', 'said', 'had', 'loved', 'see']
 noun_stopwords = ['kind', 'microphone', 'screen', 'moment', 'thing']
 discussed_phrases = ["You discussed"]
+summary_junk = ['Начну с того', 'В сегодняшнем обзоре я расскажу о том']
 
 patterns = {
     'need': {

@@ -1,15 +1,21 @@
-from Decomposer.utils import process_json, get_keywords, get_en_keywords, get_summary, get_tasks, get_reminder, get_en_summary, get_en_tasks, get_en_reminder, get_BEEN_DONE, get_TODO, patterns
+from Decomposer.utils import process_json, get_keywords, get_en_keywords, get_summary, get_mbart_ru_summary, get_tasks, get_personal_tasks, get_reminder, get_en_summary, get_en_tasks, get_en_reminder, get_BEEN_DONE, get_TODO, patterns
+from transformers import MBartTokenizer, MBartForConditionalGeneration
 import spacy
 from spacy.matcher import Matcher, DependencyMatcher
 from langdetect import detect
 import pyinflect
 
+summary_model_name = "IlyaGusev/mbart_ru_sum_gazeta"
+tokenizer = MBartTokenizer.from_pretrained(summary_model_name)
+summary_model = MBartForConditionalGeneration.from_pretrained(summary_model_name)
+
 model_matcher = {'ru': 'ru_core_news_lg',
                  'en': 'en_core_web_sm'}
 
+
 functions_matcher = {'ru': {'topic': get_keywords,
-                            'summary': get_summary,
-                            'task': get_tasks,
+                            'summary': get_mbart_ru_summary,
+                            'task': get_personal_tasks,
                             'reminder': get_reminder
                             },
                      'en': {'topic': get_en_keywords,
@@ -40,9 +46,9 @@ def decompose(transcript_json):
 
     transcript_json['topic'] = functions_matcher[lang]['topic'](text)
     transcript_json['summary'] = functions_matcher[lang]['summary'](
-        text, doc, nlp, dep_matches, lang)
+        text, summary_model, tokenizer)
     transcript_json['task'] = functions_matcher[lang]['task'](
-        text, doc, nlp, dep_matches)
+        transcript_json, nlp, dep_matcher)
     transcript_json['reminder'] = functions_matcher[lang]['reminder'](
         text, doc, nlp, dep_matches)
 
