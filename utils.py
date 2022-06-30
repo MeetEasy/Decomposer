@@ -175,9 +175,9 @@ def get_mbart_ru_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
     big_regex = re.compile('|'.join(map(re.escape, summary_junk)))
     
     if discussed:
-        return random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
+        return big_regex.sub(random.choice(discussed_phrases[lang]), random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+summary)
     
-    return big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
+    return big_regex.sub(random.choice(discussed_phrases[lang]), summary)
 
 
 def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
@@ -458,7 +458,7 @@ patterns = {
         
         'ru' : [
             
-    {'RIGHT_ID': 'discuss', 'RIGHT_ATTRS': {"LOWER": {"IN": ["обсуждали", "обсудим", "обсуждаем"]}}},
+    {'RIGHT_ID': 'discuss', 'RIGHT_ATTRS': {"LOWER": {"IN": ["обсудим", "обсуждаем"]}}},
     {'LEFT_ID': 'discuss', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj', 'POS': {"IN":["NOUN", "VERB"]}}}
                 ]
                     },
