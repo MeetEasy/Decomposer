@@ -46,7 +46,7 @@ def decompose(transcript_json):
 
     transcript_json['topic'] = functions_matcher[lang]['topic'](text)
     transcript_json['summary'] = functions_matcher[lang]['summary'](
-        text, summary_model, tokenizer)
+        text, doc, nlp, dep_matches, lang, summary_model, tokenizer)
     transcript_json['task'] = functions_matcher[lang]['task'](
         transcript_json, nlp, dep_matcher)
     transcript_json['reminder'] = functions_matcher[lang]['reminder'](

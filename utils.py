@@ -144,11 +144,21 @@ def get_en_reminder(text, doc, nlp, dep_matches):
     return list(set(reminders))
 
 
-def get_summary(text, doc, nlp, dep_matches, lang):
+def get_summary(text, doc, nlp, dep_matches):
 
     return "<summary>"
 
-def get_mbart_ru_summary(text, model, tokenizer):
+
+def get_mbart_ru_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
+    
+    discussed = []
+    
+    for i, match in enumerate(dep_matches):
+        pattern_name = match[0]
+        matches = match[1]
+        if nlp.vocab[pattern_name].text in ['discuss']:
+            
+            discussed.append(join_dependant_tokens(1, doc, matches))
 
     input_ids = tokenizer(
     [text],
@@ -164,10 +174,10 @@ def get_mbart_ru_summary(text, model, tokenizer):
     summary = tokenizer.decode(output_ids, skip_special_tokens=True)
     big_regex = re.compile('|'.join(map(re.escape, summary_junk)))
     
-    return(big_regex.sub("Обсудили", summary))
+    return random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
 
 
-def get_en_summary(text, doc, nlp, dep_matches, lang):
+def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
 
     been_done = []
     discussed = []
@@ -196,7 +206,7 @@ def get_en_summary(text, doc, nlp, dep_matches, lang):
             discussed.append(join_dependant_tokens(1, doc, matches))
 
     if discussed:
-        return random.choice(discussed_phrases)+' ' + join_phrases(discussed, upper=False)+join_phrases(been_done)+' '+summary_plan
+        return random.choice(discussed_phrases[lang])+' ' + join_phrases(discussed, upper=False)+join_phrases(been_done)+' '+summary_plan
     else:
         return join_phrases(been_done)+' '+summary_plan
 
@@ -321,7 +331,7 @@ pron_stopwords = ["нибудь", "который", "я",
                   "ты", "он", "она", "они", "кое", "что", "это"]
 verb_stopwords = ['told', 'said', 'had', 'loved', 'see']
 noun_stopwords = ['kind', 'microphone', 'screen', 'moment', 'thing']
-discussed_phrases = ["You discussed"]
+discussed_phrases = {"en":["You discussed"], "ru":["Обсуждали", "Обсудили"]}
 summary_junk = ['Начну с того', 'В сегодняшнем обзоре я расскажу о том']
 
 patterns = {
