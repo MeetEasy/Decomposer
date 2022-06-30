@@ -174,7 +174,10 @@ def get_mbart_ru_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
     summary = tokenizer.decode(output_ids, skip_special_tokens=True)
     big_regex = re.compile('|'.join(map(re.escape, summary_junk)))
     
-    return random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
+    if discussed:
+        return random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
+    
+    return big_regex.sub(random.choice(discussed_phrases[lang]), summary).strip()
 
 
 def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
