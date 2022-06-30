@@ -422,7 +422,7 @@ patterns = {
         
         'ru' : [
             
-    {'RIGHT_ID': 'noun', 'RIGHT_ATTRS': {'POS': 'NOUN',"LOWER": {"IN": ["задача"]}}},
+    {'RIGHT_ID': 'noun', 'RIGHT_ATTRS': {'POS': 'NOUN',"LOWER": {"IN": ["задача", "задачу"]}}},
     {'LEFT_ID': 'noun', 'REL_OP': '>', 'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'DEP': 'csubj','POS': 'VERB'}}
                 ],
         'en' : [
@@ -472,13 +472,13 @@ patterns = {
         'ru' : [
             
             [
-    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Fut','Number=Plur']}}},
-    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'weekday', 'RIGHT_ATTRS': {'DEP': {"IN": ["nsubj",'obl']},"LOWER": {"IN": ["завтра", "послезавтра", "понедельник","вторник","среда","четверг","пятница","суббота","воскресенье"]}}}
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'INTERSECTS': ['Tense=Fut','Number=Plur','Tense=Pres',"VerbForm=Inf"]}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'weekday', 'RIGHT_ATTRS': {'DEP': {"IN": ["nsubj",'obl',"advmod"]},"LOWER": {"IN": ["завтра", "послезавтра", "понедельник","вторник","среду","четверг","пятницу","субботу","воскресенье"]}}}
             ],
             
             [
-    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'LOWER': {'IN': ['созвонимся']}}},
-    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'weekday', 'RIGHT_ATTRS': {'DEP': 'obl',"LOWER": {"IN": ["понедельник","вторник","среда","четверг","пятница","суббота","воскресенье"]}}}
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'LOWER': {'IN': ['созвонимся','созвониться']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'weekday', 'RIGHT_ATTRS': {'DEP': 'obl',"LOWER": {"IN": ["сегодня","завтра", "послезавтра", "понедельник","вторник","среду","четверг","пятницу","субботу","воскресенье"]}}}
             ]
                 ],
         'en' : 
@@ -548,7 +548,7 @@ patterns = {
             'been_done': {
         
         'ru' : [
-    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Past','Aspect=Perf']}}},
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Past']}}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj','POS': {"IN":["NOUN"]}, "LOWER": {"NOT_IN":pron_stopwords}}}
                 ],
