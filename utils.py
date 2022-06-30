@@ -32,20 +32,24 @@ def split_text_by_speaker(transcript_json):
     texts_by_speaker = {}
     speaker = "SPEAKER_00"
     
-    for message in transcript_json['message_list']:
-        if message['speaker'] in texts_by_speaker.keys():
-            if message['speaker']==speaker:
-            
-                texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
-                texts_by_speaker[message['speaker']]+=' '+message['text'][0].lower()+message['text'][1:]+' '
+    if "speaker" in transcript_json['message_list'][0].keys():
+    
+        for message in transcript_json['message_list']:
+            if message['speaker'] in texts_by_speaker.keys():
+                if message['speaker']==speaker:
+
+                    texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
+                    texts_by_speaker[message['speaker']]+=' '+message['text'][0].lower()+message['text'][1:]+' '
+                else:
+                    texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
+                    texts_by_speaker[message['speaker']]+='. '+message['text']+'.'
+                    speaker = message['speaker']
             else:
-                texts_by_speaker[message['speaker']] = texts_by_speaker[message['speaker']][:-1]
-                texts_by_speaker[message['speaker']]+='. '+message['text']+'.'
-                speaker = message['speaker']
-        else:
-            texts_by_speaker[message['speaker']]=message['text']+'.'
-            if message['speaker']!=speaker:
-                speaker = message['speaker']
+                texts_by_speaker[message['speaker']]=message['text']+'.'
+                if message['speaker']!=speaker:
+                    speaker = message['speaker']
+    else:
+        texts_by_speaker[speaker] = process_json(transcript_json)
                 
     return texts_by_speaker
 
@@ -204,7 +208,7 @@ def get_BEEN_DONE(text, doc, nlp, dep_matches):
     for i, match in enumerate(dep_matches):
         pattern_name = match[0]
         matches = match[1]
-        if nlp.vocab[pattern_name].text in ['been_done', 'want'] and len(matches) > 2:
+        if nlp.vocab[pattern_name].text in ['been_done'] and len(matches) > 2:
 
             output = sorted([matches[0], matches[1], matches[2]])
 
