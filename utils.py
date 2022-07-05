@@ -2,6 +2,7 @@ import re
 import pymorphy2
 import random
 from keybert import KeyBERT
+from collections import defaultdict
 
 kw_model = KeyBERT()
 morph = pymorphy2.MorphAnalyzer()
@@ -102,20 +103,46 @@ def get_personal_tasks(transcript_json, nlp, dep_matcher):
     return tasks_by_speaker
 
 
-def get_en_tasks(text, doc, nlp, dep_matches):
+def get_en_tasks(transcript_json, nlp, dep_matcher):
+    
+    tasks_by_speaker = {}
+    
+    texts_by_speaker = split_text_by_speaker(transcript_json)
+    
+    for key in texts_by_speaker.keys():
+        
+        tasks = []
+        doc = nlp(texts_by_speaker[key])
+        dep_matches = dep_matcher(doc)
+        
+        for i, match in enumerate(dep_matches):
+            pattern_name = match[0]
+            matches = match[1]
+            
+            if nlp.vocab[pattern_name].text in ['task','want','need']:
+                
+                tasks.append(join_dependant_tokens(1, doc, matches))
+    
+            elif nlp.vocab[pattern_name].text == 'strong_do':
 
-    tasks = []
-
-    for i, match in enumerate(dep_matches):
-        pattern_name = match[0]
-        matches = match[1]
-
-        if nlp.vocab[pattern_name].text == 'strong_do':
-
-            tasks.append(doc[matches[0]].text+' ' +
+                tasks.append(doc[matches[0]].text+' ' +
                          join_dependant_tokens(3, doc, matches))
+        tasks_by_speaker[key] = (list(set(tasks)))
+        
+    return tasks_by_speaker
 
-    return list(set(tasks))
+#     tasks = []
+
+#     for i, match in enumerate(dep_matches):
+#         pattern_name = match[0]
+#         matches = match[1]
+
+#         if nlp.vocab[pattern_name].text == 'strong_do':
+
+#             tasks.append(doc[matches[0]].text+' ' +
+#                          join_dependant_tokens(3, doc, matches))
+
+#     return list(set(tasks))
 
 
 def get_reminder(text, doc, nlp, dep_matches):
@@ -126,22 +153,13 @@ def get_reminder(text, doc, nlp, dep_matches):
         pattern_name = match[0]
         matches = match[1]
         if nlp.vocab[pattern_name].text in ['weekday', 'time', 'remind']:
-            reminders.append(join_dependant_tokens(0, doc, matches))
+            output = sorted([matches[0], matches[1]])
+            reminders.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
+                                 doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
+#             reminders.append(join_dependant_tokens(0, doc, matches))
 
-    return list(set(reminders))
-
-
-def get_en_reminder(text, doc, nlp, dep_matches):
-
-    reminders = []
-
-    for i, match in enumerate(dep_matches):
-        pattern_name = match[0]
-        matches = match[1]
-        if nlp.vocab[pattern_name].text in ['weekday', 'time', 'remind']:
-            reminders.append(join_dependant_tokens(0, doc, matches))
-
-    return list(set(reminders))
+#     return list(set(reminders))
+    return reminders
 
 
 def get_summary(text, doc, nlp, dep_matches):
@@ -175,14 +193,15 @@ def get_mbart_ru_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
     big_regex = re.compile('|'.join(map(re.escape, summary_junk)))
     
     if discussed:
-        return big_regex.sub(random.choice(discussed_phrases[lang]), random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)),upper=False) + ' '+summary)
+        return big_regex.sub(random.choice(discussed_phrases[lang]), random.choice(discussed_phrases[lang])+' '+join_phrases(list(set(discussed)), lang,upper=False) + ' '+summary)
     
     return big_regex.sub(random.choice(discussed_phrases[lang]), summary)
 
 
 def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
 
-    been_done = []
+    been_done = defaultdict(list)
+    strong_been_done = []
     discussed = []
     plans = []
     summary_done = ''
@@ -195,23 +214,27 @@ def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
 
             if doc[matches[0]]._.inflect("VBN"):
 
-                been_done.append(doc[matches[2]].text+' '+num_map[lang][doc[matches[2]].morph.get(
-                    "Number")[0]]+' ' + doc[matches[0]]._.inflect("VBN"))
+                been_done[doc[matches[0]]._.inflect("VBN")].append(doc[matches[2]])
 
         elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
 
-            sentence = join_dependant_tokens(1, doc, matches)
-
-            summary_plan += random.choice(plan_phrases[lang])+' '+sentence+'. '
+            
+            plans.append(join_dependant_tokens(1, doc, matches))
 
         elif nlp.vocab[pattern_name].text == 'discuss':
 
             discussed.append(join_dependant_tokens(1, doc, matches))
+    
+    for key in been_done.keys():
+        strong_been_done.append("the "+ join_phrases([noun.text for noun in set(been_done[key])], lang, upper=False)[:-1] +' '+['were' if len(been_done[key])>1 else num_map[lang][been_done[key][0].morph.get("Number")[0]]][0]+" "+key)
+        
+    if plans:
+        summary_plan += random.choice(plan_phrases[lang])+' '+join_phrases(plans, lang, upper=False)
 
     if discussed:
-        return random.choice(discussed_phrases[lang])+' ' + join_phrases(discussed, upper=False)+join_phrases(been_done)+' '+summary_plan
+        return random.choice(discussed_phrases[lang])+' ' + join_phrases(discussed, lang, upper=False)+' ' +join_phrases(strong_been_done, lang)+' '+summary_plan
     else:
-        return join_phrases(been_done)+' '+summary_plan
+        return join_phrases(strong_been_done, lang)+' '+summary_plan
 
 
 def get_BEEN_DONE(text, doc, nlp, dep_matches):
@@ -295,21 +318,21 @@ def join_dependant_tokens(root_idx, doc, matches):
     return sentence
 
 
-def join_phrases(phrases_list, upper=True):
+def join_phrases(phrases_list, lang, upper=True):
 
     sentence = ''
     if len(phrases_list) == 1:
         if upper:
-            return phrases_list[0][0].upper() + phrases_list[0][1:]+'. '
+            return phrases_list[0][0].upper() + phrases_list[0][1:]+'.'
         else:
-            return phrases_list[0]+". "
+            return phrases_list[0]+"."
     else:
         for i, phrase in enumerate(phrases_list):
             if upper and i == 0:
                 sentence += phrase[0].upper() + phrase[1:]+', '
 
             elif i == len(phrases_list)-1:
-                sentence += "и "+phrase+'.'
+                sentence += and_map[lang] +phrase+'.'
 
             elif i == len(phrases_list)-2:
                 sentence += phrase+' '
@@ -323,10 +346,12 @@ def join_phrases(phrases_list, upper=True):
 num_map = {'ru': {'Plur': 'были', 'Sing': 'был'},
            'en': {'Plur': 'were', 'Sing': 'was'}}
 
+and_map = {'ru':'и ', "en":"and "}
+
 gen_map = {'Fem': 'femn', 'Masc': 'masc', 'Neut': 'neut'}
 
 plan_phrases = {'ru': ['Теперь нужно', "Дальше нужно", "Следующий этап:", "Далее:"],
-                'en': ['You now need', "Now you need", "It's time", "Now it's time", "Next is", "Then is"]}
+                'en': ['We now need', "Now we need", "It's time", "Now it's time", "Next is", "Then is"]}
 
 rus_stopwords = ['аа', 'слушай', "говоришь", 'клево', 'ща', 'привет', 'приветик', "допустим", "смотри",
                  'приду', 'секунду', 'разрешаю', 'нет', "типа", "угу", "ну", "чето", "да", "ааа"]
@@ -334,7 +359,7 @@ pron_stopwords = ["нибудь", "который", "я",
                   "ты", "он", "она", "они", "кое", "что", "это"]
 verb_stopwords = ['told', 'said', 'had', 'loved', 'see']
 noun_stopwords = ['kind', 'microphone', 'screen', 'moment', 'thing']
-discussed_phrases = {"en":["You discussed"], "ru":["Обсуждали", "Обсудили"]}
+discussed_phrases = {"en":["We have discussed"], "ru":["Обсуждали", "Обсудили"]}
 summary_junk = ['Начну с того', 'В сегодняшнем обзоре я расскажу о том']
 
 patterns = {
@@ -424,7 +449,7 @@ patterns = {
                 ],
         'en': [
             
-    {'RIGHT_ID': 'mod', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["want"]}}},
+    {'RIGHT_ID': 'mod', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["want", "thinking","planning", "plan","going"]}}},
     {'LEFT_ID': 'mod', 'REL_OP': '>', 'RIGHT_ID': 'x_comp', 'RIGHT_ATTRS': {'DEP': 'xcomp','POS': 'VERB'}},
     {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {'DEP': 'aux','POS': 'PART'}},
     {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'c_comp', 'RIGHT_ATTRS': {'DEP': 'ccomp', 'POS': {"IN":["PRON", "NOUN", "VERB"]}}}
@@ -441,7 +466,7 @@ patterns = {
         'en' : [
             
     {'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {"LOWER": {"IN": ["is"]}}},
-    {'LEFT_ID': 'aux', 'REL_OP': '>', 'RIGHT_ID': 'task', 'RIGHT_ATTRS': {'DEP': 'nsubj',"LOWER": {"IN": ["task"]}}},
+    {'LEFT_ID': 'aux', 'REL_OP': '>', 'RIGHT_ID': 'task', 'RIGHT_ATTRS': {'DEP': 'nsubj',"LOWER": {"IN": ["task","plan"]}}},
     {'LEFT_ID': 'aux', 'REL_OP': '>', 'RIGHT_ID': 'x_comp', 'RIGHT_ATTRS': {'DEP': 'xcomp','POS': 'VERB'}},
     {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'part', 'RIGHT_ATTRS': {'DEP': 'aux','POS': 'PART'}}
                 ]
@@ -451,8 +476,8 @@ patterns = {
         
         'en' : [
             
-    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["discuss"]}}},
-    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'obj', 'RIGHT_ATTRS': {'DEP': {"IN" : ['xcomp','dobj']},'POS': {"IN":['VERB',"NOUN"]},"LOWER":{"NOT_IN":rus_stopwords}}},
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["discuss","discussing"]}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'obj', 'RIGHT_ATTRS': {'DEP': {"IN" : ['xcomp','dobj']},'POS': {"IN":['VERB',"NOUN"]},"LOWER":{"NOT_IN":noun_stopwords+verb_stopwords}}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {'DEP': 'aux','POS': {"IN": ['PART', "AUX"]}}},
                   ],
         
@@ -473,7 +498,7 @@ patterns = {
         
         'en' : [
             
-    {'RIGHT_ID': 'remind', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["remind"]}}},
+    {'RIGHT_ID': 'remind', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["remind", "forget","reminder", "reminding"]}}},
     {'LEFT_ID': 'remind', 'REL_OP': '>', 'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'DEP': {"IN" : ['ccomp','dobj']},'POS': {"IN":['VERB',"NOUN"]},"LOWER":{"NOT_IN":verb_stopwords+noun_stopwords}}}
                   ]
                 },
@@ -570,6 +595,19 @@ patterns = {
     {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Past']}}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
     {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'd_object', 'RIGHT_ATTRS': {'DEP': 'dobj',"LOWER":{"NOT_IN":noun_stopwords}}}
+                ]},
+        'strong_been_done': {
+        
+        'ru' : [
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB','MORPH': {'IS_SUPERSET': ['Tense=Past']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS': 'PRON'}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'object', 'RIGHT_ATTRS': {'DEP': 'obj','POS': {"IN":["NOUN"]}, "LOWER": {"NOT_IN":pron_stopwords}}}
+                ],
+        'en' : [
+            
+    {'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'POS': 'VERB', "ORTH":{"NOT_IN": verb_stopwords},'MORPH': {'IS_SUPERSET': ['Tense=Past']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'subject', 'RIGHT_ATTRS': {'DEP': 'nsubj','POS':{"IN" : ['PRON', 'PROPN']}}},
+    {'LEFT_ID': 'verb', 'REL_OP': '>', 'RIGHT_ID': 'd_object', 'RIGHT_ATTRS': {'DEP': 'dobj','POS': 'NOUN',"LOWER":{"NOT_IN":noun_stopwords}}}
                 ]},
     'today': {
         

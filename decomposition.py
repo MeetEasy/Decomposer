@@ -1,4 +1,4 @@
-from Decomposer.utils import process_json, get_keywords, get_en_keywords, get_summary, get_mbart_ru_summary, get_tasks, get_personal_tasks, get_reminder, get_en_summary, get_en_tasks, get_en_reminder, get_BEEN_DONE, get_TODO, patterns
+from Decomposer.utils import process_json, get_keywords, get_en_keywords, get_summary, get_mbart_ru_summary, get_tasks, get_personal_tasks, get_reminder, get_en_summary, get_en_tasks, get_BEEN_DONE, get_TODO, patterns
 from transformers import MBartTokenizer, MBartForConditionalGeneration
 import spacy
 from spacy.matcher import Matcher, DependencyMatcher
@@ -16,12 +16,10 @@ model_matcher = {'ru': 'ru_core_news_lg',
 functions_matcher = {'ru': {'topic': get_keywords,
                             'summary': get_mbart_ru_summary,
                             'task': get_personal_tasks,
-                            'reminder': get_reminder
                             },
                      'en': {'topic': get_en_keywords,
                             'summary': get_en_summary,
                             'task': get_en_tasks,
-                            'reminder': get_en_reminder
                             }}
 
 
@@ -49,7 +47,7 @@ def decompose(transcript_json):
         text, doc, nlp, dep_matches, lang, summary_model, tokenizer)
     transcript_json['task'] = functions_matcher[lang]['task'](
         transcript_json, nlp, dep_matcher)
-    transcript_json['reminder'] = functions_matcher[lang]['reminder'](
+    transcript_json['reminder'] = get_reminder(
         text, doc, nlp, dep_matches)
 
     transcript_json['colored'] = {"BEEN DONE": get_BEEN_DONE(text, doc, nlp, dep_matches),
