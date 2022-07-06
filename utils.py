@@ -24,7 +24,7 @@ def process_json(transcript_json):
 
     else:
         for message in transcript_json['message_list']:
-            text += message['text'] + '. '
+            text += message['text'].lower() + ' '
     return text
 
 
@@ -64,13 +64,17 @@ def get_tasks(text, doc, nlp, dep_matches):
         matches = match[1]
 
         if nlp.vocab[pattern_name].text in ['task', 'want']:
+            
+            output = sorted([matches[0], matches[1]])
+            tasks.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
+                                 doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
 
-            tasks.append(join_dependant_tokens(1, doc, matches))
+#             tasks.append(join_dependant_tokens(1, doc, matches))
 
-        elif nlp.vocab[pattern_name].text == 'strong_do':
+#         elif nlp.vocab[pattern_name].text == 'strong_do':
 
-            tasks.append(morph.parse(doc[matches[0]].text)[
-                         0].normal_form+' '+join_dependant_tokens(3, doc, matches))
+#             tasks.append(morph.parse(doc[matches[0]].text)[
+#                          0].normal_form+' '+join_dependant_tokens(3, doc, matches))
 
     return list(set(tasks))
 
@@ -91,14 +95,19 @@ def get_personal_tasks(transcript_json, nlp, dep_matcher):
             pattern_name = match[0]
             matches = match[1]
             
-            if nlp.vocab[pattern_name].text in ['task','want','need']:
+            if nlp.vocab[pattern_name].text in ['task','need']:
                 
-                tasks.append(join_dependant_tokens(1, doc, matches))
+                output = sorted([matches[0], matches[1]])
+                tasks.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
+                                 doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
+                
+#                 tasks.append(join_dependant_tokens(1, doc, matches))
     
-            elif nlp.vocab[pattern_name].text == 'strong_do':
+#             elif nlp.vocab[pattern_name].text == 'strong_do':
 
-                tasks.append(morph.parse(doc[matches[0]].text)[0].normal_form+' '+join_dependant_tokens(3, doc, matches))
-        tasks_by_speaker[key] = (list(set(tasks)))
+#                 tasks.append(morph.parse(doc[matches[0]].text)[0].normal_form+' '+join_dependant_tokens(3, doc, matches))
+
+        tasks_by_speaker[key] = tasks
         
     return tasks_by_speaker
 
@@ -119,15 +128,19 @@ def get_en_tasks(transcript_json, nlp, dep_matcher):
             pattern_name = match[0]
             matches = match[1]
             
-            if nlp.vocab[pattern_name].text in ['task','want','need']:
+            if nlp.vocab[pattern_name].text in ['task','need', "could_you"]:
                 
-                tasks.append(join_dependant_tokens(1, doc, matches))
+                output = sorted([matches[0], matches[1]])
+                tasks.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
+                                 doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
+                
+#                 tasks.append(join_dependant_tokens(1, doc, matches))
     
-            elif nlp.vocab[pattern_name].text == 'strong_do':
+#             elif nlp.vocab[pattern_name].text == 'strong_do':
 
-                tasks.append(doc[matches[0]].text+' ' +
-                         join_dependant_tokens(3, doc, matches))
-        tasks_by_speaker[key] = (list(set(tasks)))
+#                 tasks.append(doc[matches[0]].text+' ' +
+#                          join_dependant_tokens(3, doc, matches))
+        tasks_by_speaker[key] = tasks
         
     return tasks_by_speaker
 
@@ -216,10 +229,10 @@ def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
 
                 been_done[doc[matches[0]]._.inflect("VBN")].append(doc[matches[2]])
 
-        elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
+#         elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
 
             
-            plans.append(join_dependant_tokens(1, doc, matches))
+#             plans.append(join_dependant_tokens(1, doc, matches))
 
         elif nlp.vocab[pattern_name].text == 'discuss':
 
@@ -268,7 +281,7 @@ def get_TODO(text, doc, nlp, dep_matches):
             extracts_list.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text,
                                  doc[output[1]+1:output[2]].text, doc[output[2]].text, doc[output[2]+1:output[3]].text, doc[output[3]].text, doc[output[3]+1: output[3] + 15].text+"..."])
 
-        elif nlp.vocab[pattern_name].text in ['want', 'task', "can", "today","could_you"] and len(matches) > 1:
+        elif nlp.vocab[pattern_name].text in ["can", "today",'want'] and len(matches) > 1:
 
             output = sorted([matches[0], matches[1]])
             extracts_list.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
@@ -463,13 +476,19 @@ patterns = {
     {'RIGHT_ID': 'noun', 'RIGHT_ATTRS': {'POS': 'NOUN',"LOWER": {"IN": ["задача", "задачу"]}}},
     {'LEFT_ID': 'noun', 'REL_OP': '>', 'RIGHT_ID': 'verb', 'RIGHT_ATTRS': {'DEP': 'csubj','POS': 'VERB'}}
                 ],
-        'en' : [
+        'en' : [[
             
-    {'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {"LOWER": {"IN": ["is"]}}},
+    {'RIGHT_ID': 'mod', 'RIGHT_ATTRS': {'POS': 'VERB',"LOWER": {"IN": ["task"]}}},
+    {'LEFT_ID': 'mod', 'REL_OP': '>', 'RIGHT_ID': 'x_comp', 'RIGHT_ATTRS': {'DEP': 'xcomp','POS': 'VERB'}},
+    {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {'DEP': 'aux','POS': 'PART'}},
+    {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'c_comp', 'RIGHT_ATTRS': {'DEP': 'ccomp', 'POS': {"IN":["PRON", "NOUN", "VERB"]}, "LOWER": {"NOT_IN":pron_stopwords}}}
+                ],
+            
+    [{'RIGHT_ID': 'aux', 'RIGHT_ATTRS': {"LOWER": {"IN": ["is"]}}},
     {'LEFT_ID': 'aux', 'REL_OP': '>', 'RIGHT_ID': 'task', 'RIGHT_ATTRS': {'DEP': 'nsubj',"LOWER": {"IN": ["task","plan"]}}},
     {'LEFT_ID': 'aux', 'REL_OP': '>', 'RIGHT_ID': 'x_comp', 'RIGHT_ATTRS': {'DEP': 'xcomp','POS': 'VERB'}},
     {'LEFT_ID': 'x_comp', 'REL_OP': '>', 'RIGHT_ID': 'part', 'RIGHT_ATTRS': {'DEP': 'aux','POS': 'PART'}}
-                ]
+                ]]
                     },
                 
             'discuss' : {
