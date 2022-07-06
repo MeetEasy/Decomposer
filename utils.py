@@ -275,7 +275,7 @@ def get_TODO(text, doc, nlp, dep_matches):
         pattern_name = match[0]
         matches = match[1]
 
-        if nlp.vocab[pattern_name].text in ['nsubj_verb_dobj', 'need', 'strong_do'] and len(matches) > 3:
+        if nlp.vocab[pattern_name].text in ['nsubj_verb_dobj', 'strong_do'] and len(matches) > 3:
 
             output = sorted([matches[0], matches[1], matches[2], matches[3]])
             extracts_list.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text, doc[output[0]+1:output[1]].text, doc[output[1]].text,
