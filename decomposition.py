@@ -1,4 +1,4 @@
-from Decomposer.utils import process_json, get_keywords, get_en_keywords, get_summary, get_mbart_ru_summary, get_tasks, get_personal_tasks, get_reminder, get_en_summary, get_en_tasks, get_BEEN_DONE, get_TODO, patterns
+from Decomposer.utils import *
 from transformers import MBartTokenizer, MBartForConditionalGeneration
 import spacy
 from spacy.matcher import Matcher, DependencyMatcher
@@ -19,7 +19,7 @@ functions_matcher = {'ru': {'topic': get_keywords,
                             },
                      'en': {'topic': get_en_keywords,
                             'summary': get_en_summary,
-                            'task': get_en_tasks,
+                            'task': get_tasks,
                             }}
 
 
@@ -45,8 +45,7 @@ def decompose(transcript_json):
     transcript_json['topic'] = functions_matcher[lang]['topic'](text)
     transcript_json['summary'] = functions_matcher[lang]['summary'](
         text, doc, nlp, dep_matches, lang, summary_model, tokenizer)
-    transcript_json['task'] = functions_matcher[lang]['task'](
-        transcript_json, nlp, dep_matcher)
+    transcript_json['task'] = functions_matcher[lang]['task'](transcript_json, doc, nlp, dep_matcher, dep_matches)
     transcript_json['reminder'] = get_reminder(
         text, doc, nlp, dep_matches)
 

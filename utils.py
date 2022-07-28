@@ -9,23 +9,28 @@ morph = pymorphy2.MorphAnalyzer()
 
 
 def process_json(transcript_json):
-    text = ''
-    speaker = "SPEAKER_00"
-
-    if "speaker" in transcript_json['message_list'][0].keys():
-        for message in transcript_json['message_list']:
-            if message['speaker'] == speaker:
-                text = text[:-1]
-                text += ' '+message['text'].lower()+' '
-            else:
-                text = text[:-1]
-                text += '. '+message['text']+'.'
-                speaker = message['speaker']
-
+    
+    if 'text' in transcript_json.keys():
+        return transcript_json['text']
+        
     else:
-        for message in transcript_json['message_list']:
-            text += message['text'].lower() + ' '
-    return text
+        text = ''
+        speaker = "SPEAKER_00"
+
+        if "speaker" in transcript_json['message_list'][0].keys():
+            for message in transcript_json['message_list']:
+                if message['speaker'] == speaker:
+                    text = text[:-1]
+                    text += ' '+message['text'].lower()+' '
+                else:
+                    text = text[:-1]
+                    text += '. '+message['text']+'.'
+                    speaker = message['speaker']
+
+        else:
+            for message in transcript_json['message_list']:
+                text += message['text'].lower() + ' '
+        return text
 
 
 def split_text_by_speaker(transcript_json):
@@ -55,7 +60,9 @@ def split_text_by_speaker(transcript_json):
     return texts_by_speaker
 
 
-def get_tasks(text, doc, nlp, dep_matches):
+def get_tasks(transcript_json, doc, nlp, dep_matcher, dep_matches):
+    
+    text = process_json(transcript_json)
 
     tasks = []
 
@@ -63,11 +70,17 @@ def get_tasks(text, doc, nlp, dep_matches):
         pattern_name = match[0]
         matches = match[1]
 
-        if nlp.vocab[pattern_name].text in ['task', 'want']:
+        if nlp.vocab[pattern_name].text in ['task', 'need', 'want',"could_you"]:
             
-            output = sorted([matches[0], matches[1]])
-            tasks.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
-                                 doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
+            tasks.append(doc[matches[0]].text+' '+join_dependant_tokens(1, doc, matches))
+            
+        if nlp.vocab[pattern_name].text == 'strong_do':
+            
+            tasks.append(doc[matches[0]].text+' '+join_dependant_tokens(3, doc, matches))
+            
+#             output = sorted([matches[0], matches[1]])
+#             tasks.append(["..." + doc[output[0] - 6: output[0]].text, doc[output[0]].text,
+#                                  doc[output[0]+1:output[1]].text, doc[output[1]].text, doc[output[1]+1: output[1] + 15].text+"..."])
 
 #             tasks.append(join_dependant_tokens(1, doc, matches))
 
@@ -79,7 +92,7 @@ def get_tasks(text, doc, nlp, dep_matches):
     return list(set(tasks))
 
 
-def get_personal_tasks(transcript_json, nlp, dep_matcher):
+def get_personal_tasks(transcript_json, doc, nlp, dep_matcher, dep_matches):
     
     tasks_by_speaker = {}
     
@@ -229,23 +242,23 @@ def get_en_summary(text, doc, nlp, dep_matches, lang, model, tokenizer):
 
                 been_done[doc[matches[0]]._.inflect("VBN")].append(doc[matches[2]])
 
-#         elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
-
+        elif nlp.vocab[pattern_name].text == 'need' and len(matches) > 3:
             
-#             plans.append(join_dependant_tokens(1, doc, matches))
+            plans.append(join_dependant_tokens(1, doc, matches))
 
         elif nlp.vocab[pattern_name].text == 'discuss':
 
             discussed.append(join_dependant_tokens(1, doc, matches))
     
     for key in been_done.keys():
-        strong_been_done.append("the "+ join_phrases([noun.text for noun in set(been_done[key])], lang, upper=False)[:-1] +' '+['were' if len(been_done[key])>1 else num_map[lang][been_done[key][0].morph.get("Number")[0]]][0]+" "+key)
+        subjects = list(set([noun.text for noun in been_done[key]]))
+        strong_been_done.append("the "+ join_phrases(subjects, lang, upper=False)[:-1] +' '+['were' if len(subjects)>1 else num_map[lang][been_done[key][0].morph.get("Number")[0]]][0]+" "+key)
         
     if plans:
-        summary_plan += random.choice(plan_phrases[lang])+' '+join_phrases(plans, lang, upper=False)
+        summary_plan += '\n'+random.choice(plan_phrases[lang])+' '+join_phrases(plans, lang, upper=False)
 
     if discussed:
-        return random.choice(discussed_phrases[lang])+' ' + join_phrases(discussed, lang, upper=False)+' ' +join_phrases(strong_been_done, lang)+' '+summary_plan
+        return random.choice(discussed_phrases[lang])+' ' + join_phrases(discussed, lang, upper=False)+'\n' +join_phrases(strong_been_done, lang)+' '+summary_plan
     else:
         return join_phrases(strong_been_done, lang)+' '+summary_plan
 
